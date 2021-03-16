@@ -1,0 +1,44 @@
+html {
+    height: 100%;
+}
+
+body {
+    background-image: linear-gradient(to bottom right, #09283f, #7aa6ca);
+    background-repeat: no-repeat;
+}
+
+#currentWeather {
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    background-color: rgb(42, 104, 175);
+    border-radius: 25px;
+    border-top: 2px solid rgb(0, 110, 255);
+    border-left: 2px solid rgb(0, 110, 255);
+    border-right: 2px solid rgb(0, 110, 255);
+    border-bottom: 2px solid rgb(0, 110, 255);
+    padding: 50px;
+    color: white;
+    opacity: 80%;
+}
+
+#searchBar {
+    position: absolute;
+    padding: 0px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    left: 70px;
+}
+
+#toggleButton {
+    position: relative;
+    padding: 0px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    padding-top: 0px;
+    padding-bottom: 10px;
+    left: 70px;
+}

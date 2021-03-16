@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherPage</title>
+    <link rel="stylesheet" href="main.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+</head>
+<body>
+    <div id="currentWeather">
+        <div id="toggleButton">
+            <button type="button" id="unitButton" class="btn btn-primary btn-sm">
+                <span id="unitButtonToggleText"></span>
+            </button>
+        </div>
+        <div id="searchBar">
+            <input id="userLocationInput" type="text" placeholder="Search Location">
+            <button id="userLocationButton">Go!</button>
+        </div>
+        <br></br>
+        <h2><span id="city"></span></h2>
+        <h2>Temperature: <span id="temp"></span></h2>
+        <h2>Feels Like: <span id="feelslike"></span></h2>
+        <h2>Humidity: <span id="humidity"></span></h2>
+        <h2>Wind Speed: <span id="wind"></span></h2>
+    </div>
+</body>
+    <script src="main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+</html>
