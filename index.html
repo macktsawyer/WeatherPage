@@ -11,20 +11,18 @@
 <body>
     <div id="currentWeather">
         <div id="toggleButton">
-            <button type="button" id="unitButton" class="btn btn-primary btn-sm">
-                <span id="unitButtonToggleText"></span>
-            </button>
+            <button onclick="toggleButton()" type="button" id="unitButton" class="btn btn-primary btn-lg">Metric</button>
         </div>
         <div id="searchBar">
             <input id="userLocationInput" type="text" placeholder="Search Location">
-            <button id="userLocationButton">Go!</button>
+            <button class="btn btn-outline-light btn-sm" id="userLocationButton">Go!</button>
         </div>
         <br></br>
         <h2><span id="city"></span></h2>
-        <h2>Temperature: <span id="temp"></span></h2>
-        <h2>Feels Like: <span id="feelslike"></span></h2>
+        <h2>Temperature: <span id="temp"></span><span id="unitTemp"></span></h2>
+        <h2>Feels Like: <span id="feelslike"></span><span id="unitTempFeel"></span></h2>
         <h2>Humidity: <span id="humidity"></span></h2>
-        <h2>Wind Speed: <span id="wind"></span></h2>
+        <h2>Wind Speed: <span id="wind"></span><span id="unitSpeed"></span></h2>
     </div>
 </body>
     <script src="main.js"></script>

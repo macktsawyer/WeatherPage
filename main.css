@@ -33,6 +33,12 @@ body {
     left: 70px;
 }
 
+#userLocationButton {
+    position: absolute;
+    top: 0px;
+    right: -50px;
+}
+
 #toggleButton {
     position: relative;
     padding: 0px;
@@ -40,5 +46,5 @@ body {
     margin-top: 0px;
     padding-top: 0px;
     padding-bottom: 10px;
-    left: 70px;
+    left: 80px;
 }
