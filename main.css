@@ -22,11 +22,11 @@ body {
     padding: 50px;
     color: white;
     opacity: 80%;
-    box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
 }
 
 #currentWeather:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
 }
 
 #searchBar {
@@ -52,5 +52,5 @@ body {
     margin-top: 0px;
     padding-top: 0px;
     padding-bottom: 10px;
-    left: 80px;
+    left: 90px;
 }
