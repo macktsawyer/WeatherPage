@@ -45,12 +45,12 @@ function toggleButton() {
 }
 
 async function getWeather() {
-    let basic_api_URL = 'http://api.openweathermap.org/data/2.5/weather?q=' + cityName + '&units=metric&appid=278afa8fabdf943e1a3ead235406b4a5';
+    let basic_api_URL = 'http://api.openweathermap.org/data/2.5/weather?q=' + cityName + '&units=metric&appid=278afa8fabdf943e1a3ead235406b4a5'; // Changes API call for the cityName entered
     const response = await fetch(basic_api_URL);
     const data = await response.json();
     console.log(data);
     const location = data.name;
-    let temperature = Math.round(data.main.temp);
+    let temperature = Math.round(data.main.temp); // Variables must be local for async call
     let humidity = data.main.humidity + "%";
     let feelslike = Math.round(data.main.feels_like); 
     let wind = Math.round(data.wind.speed);
@@ -73,8 +73,8 @@ getWeather();
 document.getElementById('userLocationButton').addEventListener('click', function getNewLocation() { 
     let newValue = document.getElementById('userLocationInput').value;
     cityName = newValue;
-    console.log(cityName);
-    getWeather();
+    console.log(cityName); 
+    getWeather(); // Allows the button to call for a new location
 });
 
 input.addEventListener('keyup', function pushEnter(event) {   // Enables 'Enter' key to trigger input to be entered from input field 
@@ -88,7 +88,6 @@ input.addEventListener('keyup', function pushEnter(event) {   // Enables 'Enter'
 // 
 
 // To Do
-// Learn how to make more mobile friendly
-// Solve mobile issue by making card the full screen while on mobile?
 // Create more weather features
 // Create a way for timestamp to reflect the timezone of the reported weather
+// Add weather response features (sunshine and light background for clear weather, etc)

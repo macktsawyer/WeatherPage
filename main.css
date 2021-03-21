@@ -30,19 +30,16 @@ body {
 }
 
 #searchBar {
-    position: absolute;
+    position: relative;
     padding: 0px;
     margin-bottom: 0px;
     margin-top: 0px;
     padding-top: 0px;
     padding-bottom: 0px;
-    left: 70px;
 }
 
 #userLocationButton {
-    position: absolute;
-    top: 0px;
-    right: -50px;
+    position: relative;
 }
 
 #toggleButton {
@@ -52,5 +49,11 @@ body {
     margin-top: 0px;
     padding-top: 0px;
     padding-bottom: 10px;
-    left: 90px;
+}
+
+@media only screen and (max-width: 768px) {
+    [id*="currentWeather"] {
+        width: 100%;
+        height: 100%;
+    }
 }
