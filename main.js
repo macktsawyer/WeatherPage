@@ -90,7 +90,7 @@ document.getElementById('userLocationButton').addEventListener('click', function
     let newValue = document.getElementById('userLocationInput').value;
     cityName = newValue;
     console.log(cityName); 
-    getWeather(); // Allows the button to call for a new location
+    getWeather(); // Allows the button to call for a new location and info from API
 });
 
 input.addEventListener('keyup', function pushEnter(event) {   // Enables 'Enter' key to trigger input to be entered from input field 

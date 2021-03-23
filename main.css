@@ -29,6 +29,15 @@ body {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
 }
 
+#toggleButton {
+    position: relative;
+    padding: 0px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    padding-top: 0px;
+    padding-bottom: 10px;
+}
+
 #searchBar {
     position: relative;
     padding: 0px;
@@ -38,17 +47,14 @@ body {
     padding-bottom: 0px;
 }
 
-#userLocationButton {
+#weatherPicDiv {
+    padding: 0px;
+    margin: 0px;
     position: relative;
 }
 
-#toggleButton {
+#userLocationButton {
     position: relative;
-    padding: 0px;
-    margin-bottom: 0px;
-    margin-top: 0px;
-    padding-top: 0px;
-    padding-bottom: 10px;
 }
 
 @media only screen and (max-width: 768px) {
