@@ -14,6 +14,8 @@ function toggleButton() {
     let currentWind = parseInt(document.getElementById('wind').textContent);
     let currentFeels = parseInt(document.getElementById('feelslike').textContent);
     let visMeasure = parseInt(document.getElementById('visibil').textContent);
+    let locationMinTemp = parseInt(document.getElementById('minTemp').textContent);
+    let locationMaxTemp = parseInt(document.getElementById('maxTemp').textContent);
 
     if (btn.innerHTML === 'Metric') {
         btn.innerHTML = 'Imperial'; // Converts button label back to 'Imperial'
@@ -22,10 +24,14 @@ function toggleButton() {
         currentDistanceUnit = "+ feet";
         document.getElementById('unitSpeed').textContent = currentSpeedUnit; // Converts Units Back To Imperial
         document.getElementById('unitTemp').textContent = currentTempUnit;
+        document.getElementById('minTempUnit').textContent = currentTempUnit;
+        document.getElementById('maxTempUnit').textContent = currentTempUnit;
         document.getElementById('unitTempFeel').textContent = currentTempUnit;
         document.getElementById('visibilityUnit').textContent = currentDistanceUnit;            ;
         document.getElementById('wind').textContent = Math.round(currentWind * 2.237); // Converts wind, temps back to imperial
         document.getElementById('temp').textContent = Math.round((currentTemp * (9/5)) + 32);
+        document.getElementById('minTemp').textContent = Math.round((locationMinTemp * (9/5)) + 32);
+        document.getElementById('maxTemp').textContent = Math.round((locationMaxTemp * (9/5)) +32);
         document.getElementById('feelslike').textContent = Math.round((currentFeels * (9/5)) + 32);
         document.getElementById('visibil').textContent = Math.round(visMeasure * 3.281);
     } else {
@@ -35,10 +41,14 @@ function toggleButton() {
         currentDistanceUnit = "+ meters";
         document.getElementById('unitSpeed').textContent = currentSpeedUnit; // Converts Units Back to Metric
         document.getElementById('unitTemp').textContent = currentTempUnit;
+        document.getElementById('minTempUnit').textContent = currentTempUnit;
+        document.getElementById('maxTempUnit').textContent = currentTempUnit;
         document.getElementById('unitTempFeel').textContent = currentTempUnit;
         document.getElementById('visibilityUnit').textContent = currentDistanceUnit;
         document.getElementById('wind').textContent = Math.round(currentWind / 2.237); // Converts wind, temps back to Metric
         document.getElementById('temp').textContent = Math.round((currentTemp - 32) * (5/9));
+        document.getElementById('minTemp').textContent = Math.round((locationMinTemp - 32) * (5/9));
+        document.getElementById('maxTemp').textContent = Math.round((locationMaxTemp - 32) * (5/9));
         document.getElementById('feelslike').textContent = Math.round((currentFeels - 32) * (5/9));
         document.getElementById('visibil').textContent = Math.round(visMeasure / 3.281);
     }
@@ -54,16 +64,22 @@ async function getWeather() {
     let humidity = data.main.humidity + "%";
     let feelslike = Math.round(data.main.feels_like); 
     let wind = Math.round(data.wind.speed);
-    let visMeasure = data.visibility; 
+    let visMeasure = data.visibility;
+    let minimumTemp = Math.round(data.main.temp_min);
+    let maximumTemp = Math.round(data.main.temp_max); 
     document.getElementById('city').textContent = location;
     document.getElementById('time').textContent = localeTime;
     document.getElementById('temp').textContent = temperature;
+    document.getElementById('minTemp').textContent = minimumTemp;
+    document.getElementById('maxTemp').textContent = maximumTemp;
     document.getElementById('humidity').textContent = humidity;
     document.getElementById('feelslike').textContent = feelslike;
     document.getElementById('wind').textContent = wind;
     document.getElementById('visibil').textContent = visMeasure;
     document.getElementById('unitSpeed').textContent = currentSpeedUnit;
     document.getElementById('unitTemp').textContent = currentTempUnit;
+    document.getElementById('minTempUnit').textContent = currentTempUnit;
+    document.getElementById('maxTempUnit').textContent = currentTempUnit;
     document.getElementById('unitTempFeel').textContent = currentTempUnit;
     document.getElementById('visibilityUnit').textContent = currentDistanceUnit;
 };
@@ -85,7 +101,7 @@ input.addEventListener('keyup', function pushEnter(event) {   // Enables 'Enter'
 });
 
 // Known Issues
-// 
+// New location while on 'imperial' causes info reporting error
 
 // To Do
 // Create more weather features
