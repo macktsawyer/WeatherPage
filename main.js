@@ -7,6 +7,7 @@ let currentSpeedUnit = "mps";
 let currentDistanceUnit = "+ meters";
 let timeStamp = new Date();
 let localeTime = timeStamp.toLocaleString();
+let currentCondition = "cloudy";
 
 function toggleButton() {
     let btn = document.getElementById('unitButton');
@@ -66,7 +67,17 @@ async function getWeather() {
     let wind = Math.round(data.wind.speed);
     let visMeasure = data.visibility;
     let minimumTemp = Math.round(data.main.temp_min);
-    let maximumTemp = Math.round(data.main.temp_max); 
+    let maximumTemp = Math.round(data.main.temp_max);
+    let cloudAmount = data.clouds.all;
+    console.log(currentCondition);
+    console.log(cloudAmount);
+
+    if (cloudAmount > 50) {
+        currentCondition = "cloudy";
+    } else (cloudAmount < 50); {
+        currentCondition = "sunny";
+    };
+
     document.getElementById('city').textContent = location;
     document.getElementById('time').textContent = localeTime;
     document.getElementById('temp').textContent = temperature;
@@ -82,9 +93,9 @@ async function getWeather() {
     document.getElementById('maxTempUnit').textContent = currentTempUnit;
     document.getElementById('unitTempFeel').textContent = currentTempUnit;
     document.getElementById('visibilityUnit').textContent = currentDistanceUnit;
-};
 
-getWeather();
+    cloudCheck();
+};
 
 document.getElementById('userLocationButton').addEventListener('click', function getNewLocation() { 
     let newValue = document.getElementById('userLocationInput').value;
@@ -99,6 +110,16 @@ input.addEventListener('keyup', function pushEnter(event) {   // Enables 'Enter'
         document.getElementById('userLocationButton').click();
     }
 });
+
+function cloudCheck() {
+    if (currentCondition === "cloudy") {
+        document.getElementById('weatherPic').setAttribute("src", "Cloudy.gif"); 
+    } else if (currentCondition === "sunny") {
+        document.getElementById('weatherPic').setAttribute("src", "Sunshine.gif");
+    }
+}
+
+getWeather();
 
 // Known Issues
 // New location while on 'imperial' causes info reporting error
