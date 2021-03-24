@@ -69,14 +69,8 @@ async function getWeather() {
     let minimumTemp = Math.round(data.main.temp_min);
     let maximumTemp = Math.round(data.main.temp_max);
     let cloudAmount = data.clouds.all;
-    console.log(currentCondition);
-    console.log(cloudAmount);
 
-    if (cloudAmount > 50) {
-        currentCondition = "cloudy";
-    } else (cloudAmount < 50); {
-        currentCondition = "sunny";
-    };
+    currentCondition = (cloudAmount > 50) ? "cloudy" : "sunny";
 
     document.getElementById('city').textContent = location;
     document.getElementById('time').textContent = localeTime;
