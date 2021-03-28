@@ -28,7 +28,7 @@ function toggleButton() {
         document.getElementById('minTempUnit').textContent = currentTempUnit;
         document.getElementById('maxTempUnit').textContent = currentTempUnit;
         document.getElementById('unitTempFeel').textContent = currentTempUnit;
-        document.getElementById('visibilityUnit').textContent = currentDistanceUnit;            ;
+        document.getElementById('visibilityUnit').textContent = currentDistanceUnit;
         document.getElementById('wind').textContent = Math.round(currentWind * 2.237); // Converts wind, temps back to imperial
         document.getElementById('temp').textContent = Math.round((currentTemp * (9/5)) + 32);
         document.getElementById('minTemp').textContent = Math.round((locationMinTemp * (9/5)) + 32);
