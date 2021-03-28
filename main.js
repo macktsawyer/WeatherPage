@@ -1,7 +1,18 @@
 "use strict";
 
+// Known Issues
+// New location while on 'imperial' causes info reporting error
+// Resize messes with CSS layout
+
+// To Do
+// Create moon instead of sun for night time clear skies
+// Add in a rain, snow, storm feature
+// Create a way for timestamp to reflect the timezone of the reported weather
+// Add weather response features (sunshine and light background for clear weather, etc)
+// Top bar needs to convert to imperial on button push
+
 let input = document.getElementById("userLocationInput");
-let cityName = 'New York';
+let cityName = 'San Diego';
 let currentTempUnit = "°C";
 let currentSpeedUnit = "mps";
 let currentDistanceUnit = "+ meters";
@@ -105,7 +116,7 @@ input.addEventListener('keyup', function pushEnter(event) {   // Enables 'Enter'
     }
 });
 
-function cloudCheck() {
+function cloudCheck() { // Checks for cloudy vs clear weather
     if (currentCondition === "cloudy") {
         document.getElementById('weatherPic').setAttribute("src", "Cloudy.gif"); 
     } else if (currentCondition === "sunny") {
@@ -115,10 +126,97 @@ function cloudCheck() {
 
 getWeather();
 
-// Known Issues
-// New location while on 'imperial' causes info reporting error
+async function newYorkWeatherGrab() {
+    let newYorkAPICall = 'http://api.openweathermap.org/data/2.5/weather?q=Manhattan&units=metric&appid=278afa8fabdf943e1a3ead235406b4a5';
+    const response = await fetch(newYorkAPICall);
+    const data = await response.json();
+    let locationNYTemperature = Math.round(data.main.temp);
+    let cloudAmount = data.clouds.all;
+    let newYorkCloudCondition = (cloudAmount > 50) ? "cloudy" : "sunny";
 
-// To Do
-// Create more weather features
-// Create a way for timestamp to reflect the timezone of the reported weather
-// Add weather response features (sunshine and light background for clear weather, etc)
+    if (newYorkCloudCondition === "cloudy") {
+        document.getElementById('newYorkWeatherPic').setAttribute("src", "Cloudy.gif"); 
+    } else if (newYorkCloudCondition === "sunny") {
+        document.getElementById('newYorkWeatherPic').setAttribute("src", "Sunshine.gif");
+    }
+    
+    document.getElementById('newYorkTemperature').textContent = locationNYTemperature + currentTempUnit;
+}
+
+newYorkWeatherGrab();
+
+async function losAngelesWeatherGrab() {
+    let losAngelesAPICall = 'http://api.openweathermap.org/data/2.5/weather?q=los angeles&units=metric&appid=278afa8fabdf943e1a3ead235406b4a5';
+    const response = await fetch(losAngelesAPICall);
+    const data = await response.json();
+    let locationLATemperature = Math.round(data.main.temp);
+    let cloudAmount = data.clouds.all;
+    let losAngelesCloudCondition = (cloudAmount > 50) ? "cloudy" : "sunny";
+
+    if (losAngelesCloudCondition === "cloudy") {
+        document.getElementById('losAngelesWeatherPic').setAttribute("src", "Cloudy.gif"); 
+    } else if (losAngelesCloudCondition === "sunny") {
+        document.getElementById('losAngelesWeatherPic').setAttribute("src", "Sunshine.gif");
+    }
+    
+    document.getElementById('losAngelesTemperature').textContent = locationLATemperature + currentTempUnit;
+}
+
+losAngelesWeatherGrab();
+
+async function bostonWeatherGrab() {
+    let bostonAPICall = 'http://api.openweathermap.org/data/2.5/weather?q=boston&units=metric&appid=278afa8fabdf943e1a3ead235406b4a5';
+    const response = await fetch(bostonAPICall);
+    const data = await response.json();
+    let locationBosTemperature = Math.round(data.main.temp);
+    let cloudAmount = data.clouds.all;
+    let bostonCloudCondition = (cloudAmount > 50) ? "cloudy" : "sunny";
+
+    if (bostonCloudCondition === "cloudy") {
+        document.getElementById('bostonWeatherPic').setAttribute("src", "Cloudy.gif"); 
+    } else if (bostonCloudCondition === "sunny") {
+        document.getElementById('bostonWeatherPic').setAttribute("src", "Sunshine.gif");
+    }
+    
+    document.getElementById('bostonTemperature').textContent = locationBosTemperature + currentTempUnit;
+}
+
+bostonWeatherGrab();
+
+async function miamiWeatherGrab() {
+    let miamiAPICall = 'http://api.openweathermap.org/data/2.5/weather?q=miami&units=metric&appid=278afa8fabdf943e1a3ead235406b4a5';
+    const response = await fetch(miamiAPICall);
+    const data = await response.json();
+    let locationMiaTemperature = Math.round(data.main.temp);
+    let cloudAmount = data.clouds.all;
+    let miamiCloudCondition = (cloudAmount > 50) ? "cloudy" : "sunny";
+
+    if (miamiCloudCondition === "cloudy") {
+        document.getElementById('miamiWeatherPic').setAttribute("src", "Cloudy.gif"); 
+    } else if (miamiCloudCondition === "sunny") {
+        document.getElementById('miamiWeatherPic').setAttribute("src", "Sunshine.gif");
+    }
+
+    document.getElementById('miamiTemperature').textContent = locationMiaTemperature + currentTempUnit;
+}
+
+miamiWeatherGrab();
+
+async function dallasWeatherGrab() {
+    let dallasAPICall = 'http://api.openweathermap.org/data/2.5/weather?q=dallas&units=metric&appid=278afa8fabdf943e1a3ead235406b4a5';
+    const response = await fetch(dallasAPICall);
+    const data = await response.json();
+    let locationDalTemperature = Math.round(data.main.temp);
+    let cloudAmount = data.clouds.all;
+    let dallasCloudCondition = (cloudAmount > 50) ? "cloudy" : "sunny";
+
+    if (dallasCloudCondition === "cloudy") {
+        document.getElementById('dallasWeatherPic').setAttribute("src", "Cloudy.gif"); 
+    } else if (dallasCloudCondition === "sunny") {
+        document.getElementById('dallasWeatherPic').setAttribute("src", "Sunshine.gif");
+    }
+
+    document.getElementById('dallasTemperature').textContent = locationDalTemperature + currentTempUnit;
+}
+
+dallasWeatherGrab();
