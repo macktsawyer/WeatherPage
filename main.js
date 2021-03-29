@@ -9,7 +9,6 @@
 // Add in a rain, snow, storm feature
 // Create a way for timestamp to reflect the timezone of the reported weather
 // Add weather response features (sunshine and light background for clear weather, etc)
-// Top bar needs to convert to imperial on button push
 
 let input = document.getElementById("userLocationInput");
 let cityName = 'San Diego';
@@ -28,6 +27,11 @@ function toggleButton() {
     let visMeasure = parseInt(document.getElementById('visibil').textContent);
     let locationMinTemp = parseInt(document.getElementById('minTemp').textContent);
     let locationMaxTemp = parseInt(document.getElementById('maxTemp').textContent);
+    let newYorkTemp = parseInt(document.getElementById('newYorkTemperature').textContent);
+    let losAngelesTemp = parseInt(document.getElementById('losAngelesTemperature').textContent);
+    let bostonTemp = parseInt(document.getElementById('bostonTemperature').textContent);
+    let miamiTemp = parseInt(document.getElementById('miamiTemperature').textContent);
+    let dallasTemp = parseInt(document.getElementById('dallasTemperature').textContent);
 
     if (btn.innerHTML === 'Metric') {
         btn.innerHTML = 'Imperial'; // Converts button label back to 'Imperial'
@@ -46,6 +50,17 @@ function toggleButton() {
         document.getElementById('maxTemp').textContent = Math.round((locationMaxTemp * (9/5)) +32);
         document.getElementById('feelslike').textContent = Math.round((currentFeels * (9/5)) + 32);
         document.getElementById('visibil').textContent = Math.round(visMeasure * 3.281);
+
+        document.getElementById('newYorkTemperature').textContent = Math.round((newYorkTemp * (9/5)) + 32);
+        document.getElementById('topBarUnitNY').textContent = currentTempUnit;
+        document.getElementById('losAngelesTemperature').textContent = Math.round((losAngelesTemp * (9/5)) + 32);
+        document.getElementById('topBarUnitLA').textContent = currentTempUnit;
+        document.getElementById('bostonTemperature').textContent = Math.round((bostonTemp * (9/5)) + 32);
+        document.getElementById('topBarUnitBos').textContent = currentTempUnit;
+        document.getElementById('miamiTemperature').textContent = Math.round((miamiTemp * (9/5)) + 32);
+        document.getElementById('topBarUnitMia').textContent = currentTempUnit;
+        document.getElementById('dallasTemperature').textContent = Math.round((dallasTemp * (9/5)) + 32);
+        document.getElementById('topBarUnitDal').textContent = currentTempUnit;
     } else {
         btn.innerHTML = 'Metric'; // Converts button label back to 'Metric'
         currentSpeedUnit = "mps"; // Changes variable statuses, used in global scope for async function
@@ -63,6 +78,17 @@ function toggleButton() {
         document.getElementById('maxTemp').textContent = Math.round((locationMaxTemp - 32) * (5/9));
         document.getElementById('feelslike').textContent = Math.round((currentFeels - 32) * (5/9));
         document.getElementById('visibil').textContent = Math.round(visMeasure / 3.281);
+
+        document.getElementById('newYorkTemperature').textContent = Math.round((newYorkTemp - 32) * (5/9));
+        document.getElementById('topBarUnitNY').textContent = currentTempUnit;
+        document.getElementById('losAngelesTemperature').textContent = Math.round((losAngelesTemp - 32) * (5/9));
+        document.getElementById('topBarUnitLA').textContent = currentTempUnit;
+        document.getElementById('bostonTemperature').textContent = Math.round((bostonTemp - 32) * (5/9));
+        document.getElementById('topBarUnitBos').textContent = currentTempUnit;
+        document.getElementById('miamiTemperature').textContent = Math.round((miamiTemp - 32) * (5/9));
+        document.getElementById('topBarUnitMia').textContent = currentTempUnit;
+        document.getElementById('dallasTemperature').textContent = Math.round((dallasTemp - 32) * (5/9));
+        document.getElementById('topBarUnitDal').textContent = currentTempUnit;
     }
 }
 
@@ -140,7 +166,8 @@ async function newYorkWeatherGrab() {
         document.getElementById('newYorkWeatherPic').setAttribute("src", "Sunshine.gif");
     }
     
-    document.getElementById('newYorkTemperature').textContent = locationNYTemperature + currentTempUnit;
+    document.getElementById('newYorkTemperature').textContent = locationNYTemperature;
+    document.getElementById('topBarUnitNY').textContent = currentTempUnit;
 }
 
 newYorkWeatherGrab();
@@ -159,7 +186,8 @@ async function losAngelesWeatherGrab() {
         document.getElementById('losAngelesWeatherPic').setAttribute("src", "Sunshine.gif");
     }
     
-    document.getElementById('losAngelesTemperature').textContent = locationLATemperature + currentTempUnit;
+    document.getElementById('losAngelesTemperature').textContent = locationLATemperature;
+    document.getElementById('topBarUnitLA').textContent = currentTempUnit;
 }
 
 losAngelesWeatherGrab();
@@ -178,7 +206,8 @@ async function bostonWeatherGrab() {
         document.getElementById('bostonWeatherPic').setAttribute("src", "Sunshine.gif");
     }
     
-    document.getElementById('bostonTemperature').textContent = locationBosTemperature + currentTempUnit;
+    document.getElementById('bostonTemperature').textContent = locationBosTemperature;
+    document.getElementById('topBarUnitBos').textContent = currentTempUnit;
 }
 
 bostonWeatherGrab();
@@ -197,7 +226,8 @@ async function miamiWeatherGrab() {
         document.getElementById('miamiWeatherPic').setAttribute("src", "Sunshine.gif");
     }
 
-    document.getElementById('miamiTemperature').textContent = locationMiaTemperature + currentTempUnit;
+    document.getElementById('miamiTemperature').textContent = locationMiaTemperature;
+    document.getElementById('topBarUnitMia').textContent = currentTempUnit;
 }
 
 miamiWeatherGrab();
@@ -216,7 +246,8 @@ async function dallasWeatherGrab() {
         document.getElementById('dallasWeatherPic').setAttribute("src", "Sunshine.gif");
     }
 
-    document.getElementById('dallasTemperature').textContent = locationDalTemperature + currentTempUnit;
+    document.getElementById('dallasTemperature').textContent = locationDalTemperature;
+    document.getElementById('topBarUnitDal').textContent = currentTempUnit;
 }
 
 dallasWeatherGrab();
