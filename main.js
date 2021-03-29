@@ -6,9 +6,9 @@
 
 // To Do
 // Create moon instead of sun for night time clear skies
-// Add in a rain, snow, storm feature
 // Create a way for timestamp to reflect the timezone of the reported weather
 // Add weather response features (sunshine and light background for clear weather, etc)
+// Open Street Map for Weather Map?
 
 let input = document.getElementById("userLocationInput");
 let cityName = 'San Diego';
@@ -18,6 +18,7 @@ let currentDistanceUnit = "+ meters";
 let timeStamp = new Date();
 let localeTime = timeStamp.toLocaleString();
 let currentCondition = "cloudy";
+let specialWeather = "Clear";
 
 function toggleButton() {
     let btn = document.getElementById('unitButton');
@@ -106,8 +107,21 @@ async function getWeather() {
     let minimumTemp = Math.round(data.main.temp_min);
     let maximumTemp = Math.round(data.main.temp_max);
     let cloudAmount = data.clouds.all;
+    specialWeather = data.weather[0].main;
 
     currentCondition = (cloudAmount > 50) ? "cloudy" : "sunny";
+
+    if (specialWeather === "Rain") {
+        currentCondition = "Rain";
+    } else if (specialWeather === "Snow") {
+        currentCondition = "Snow"
+    } else if (specialWeather === "Thunderstorm") {
+        currentCondition = "Thunderstorm"
+    } else {
+        currentCondition = currentCondition;
+    }
+
+    console.log(timeStamp);
 
     document.getElementById('city').textContent = location;
     document.getElementById('time').textContent = localeTime;
@@ -147,6 +161,12 @@ function cloudCheck() { // Checks for cloudy vs clear weather
         document.getElementById('weatherPic').setAttribute("src", "Cloudy.gif"); 
     } else if (currentCondition === "sunny") {
         document.getElementById('weatherPic').setAttribute("src", "Sunshine.gif");
+    } else if (currentCondition === "Rain"){
+        document.getElementById('weatherPic').setAttribute("src", "Raining.gif");
+    } else if (currentCondition === "Snow"){
+        document.getElementById('weatherPic').setAttribute("src", "Snowing.gif");
+    } else if (currentCondition === "Thunderstorm"){
+        document.getElementById('weatherPic').setAttribute("src", "Storming.gif");
     }
 }
 
