@@ -2,13 +2,13 @@
 
 // Known Issues
 // New location while on 'imperial' causes info reporting error
-// Resize messes with CSS layout
 
 // To Do
 // Create moon instead of sun for night time clear skies
 // Create a way for timestamp to reflect the timezone of the reported weather
 // Add weather response features (sunshine and light background for clear weather, etc)
 // Open Street Map for Weather Map?
+// Weather emblems for topBar special weather
 
 let input = document.getElementById("userLocationInput");
 let cityName = 'San Diego';
@@ -179,11 +179,28 @@ async function newYorkWeatherGrab() {
     let locationNYTemperature = Math.round(data.main.temp);
     let cloudAmount = data.clouds.all;
     let newYorkCloudCondition = (cloudAmount > 50) ? "cloudy" : "sunny";
+    let newYorkSpecialWeather = data.weather[0].main;
+
+    if (newYorkSpecialWeather === "Rain") {
+        newYorkCloudCondition = "Rain";
+    } else if (newYorkSpecialWeather === "Snow") {
+        newYorkCloudCondition = "Snow"
+    } else if (newYorkSpecialWeather === "Thunderstorm") {
+        newYorkCloudCondition = "Thunderstorm"
+    } else {
+        newYorkCloudCondition = newYorkCloudCondition;
+    }
 
     if (newYorkCloudCondition === "cloudy") {
         document.getElementById('newYorkWeatherPic').setAttribute("src", "Cloudy.gif"); 
     } else if (newYorkCloudCondition === "sunny") {
         document.getElementById('newYorkWeatherPic').setAttribute("src", "Sunshine.gif");
+    } else if (newYorkCloudCondition === "Rain"){
+        document.getElementById('newYorkWeatherPic').setAttribute("src", "Raining.gif");
+    } else if (newYorkCloudCondition === "Snow"){
+        document.getElementById('newYorkWeatherPic').setAttribute("src", "Snowing.gif");
+    } else if (newYorkCloudCondition === "Thunderstorm"){
+        document.getElementById('newYorkWeatherPic').setAttribute("src", "Storming.gif");
     }
     
     document.getElementById('newYorkTemperature').textContent = locationNYTemperature;
@@ -199,11 +216,28 @@ async function losAngelesWeatherGrab() {
     let locationLATemperature = Math.round(data.main.temp);
     let cloudAmount = data.clouds.all;
     let losAngelesCloudCondition = (cloudAmount > 50) ? "cloudy" : "sunny";
+    let losAngelesSpecialWeather = data.weather[0].main;
+    
+    if (losAngelesSpecialWeather === "Rain") {
+        losAngelesCloudCondition = "Rain";
+    } else if (losAngelesSpecialWeather === "Snow") {
+        losAngelesCloudCondition = "Snow"
+    } else if (losAngelesSpecialWeather === "Thunderstorm") {
+        losAngelesCloudCondition = "Thunderstorm"
+    } else {
+        losAngelesCloudCondition = losAngelesCloudCondition;
+    }
 
     if (losAngelesCloudCondition === "cloudy") {
         document.getElementById('losAngelesWeatherPic').setAttribute("src", "Cloudy.gif"); 
     } else if (losAngelesCloudCondition === "sunny") {
         document.getElementById('losAngelesWeatherPic').setAttribute("src", "Sunshine.gif");
+    } else if (losAngelesCloudCondition === "Rain"){
+        document.getElementById('losAngelesWeatherPic').setAttribute("src", "Raining.gif");
+    } else if (losAngelesCloudCondition === "Snow"){
+        document.getElementById('losAngelesWeatherPic').setAttribute("src", "Snowing.gif");
+    } else if (losAngelesCloudCondition === "Thunderstorm"){
+        document.getElementById('losAngelesWeatherPic').setAttribute("src", "Storming.gif");
     }
     
     document.getElementById('losAngelesTemperature').textContent = locationLATemperature;
@@ -219,11 +253,28 @@ async function bostonWeatherGrab() {
     let locationBosTemperature = Math.round(data.main.temp);
     let cloudAmount = data.clouds.all;
     let bostonCloudCondition = (cloudAmount > 50) ? "cloudy" : "sunny";
+    let bostonSpecialWeather = data.weather[0].main;
+
+    if (bostonSpecialWeather === "Rain") {
+        bostonCloudCondition = "Rain";
+    } else if (bostonSpecialWeather === "Snow") {
+        bostonCloudCondition = "Snow"
+    } else if (bostonSpecialWeather === "Thunderstorm") {
+        bostonCloudCondition = "Thunderstorm"
+    } else {
+        bostonCloudCondition = bostonCloudCondition;
+    }
 
     if (bostonCloudCondition === "cloudy") {
         document.getElementById('bostonWeatherPic').setAttribute("src", "Cloudy.gif"); 
     } else if (bostonCloudCondition === "sunny") {
         document.getElementById('bostonWeatherPic').setAttribute("src", "Sunshine.gif");
+    } else if (bostonCloudCondition === "Rain"){
+        document.getElementById('bostonWeatherPic').setAttribute("src", "Raining.gif");
+    } else if (bostonCloudCondition === "Snow"){
+        document.getElementById('bostonWeatherPic').setAttribute("src", "Snowing.gif");
+    } else if (bostonCloudCondition === "Thunderstorm"){
+        document.getElementById('bostonWeatherPic').setAttribute("src", "Storming.gif");
     }
     
     document.getElementById('bostonTemperature').textContent = locationBosTemperature;
@@ -239,11 +290,28 @@ async function miamiWeatherGrab() {
     let locationMiaTemperature = Math.round(data.main.temp);
     let cloudAmount = data.clouds.all;
     let miamiCloudCondition = (cloudAmount > 50) ? "cloudy" : "sunny";
+    let miamiSpecialWeather = data.weather[0].main;
+
+    if (miamiSpecialWeather === "Rain") {
+        miamiCloudCondition = "Rain";
+    } else if (miamiSpecialWeather === "Snow") {
+        miamiCloudCondition = "Snow"
+    } else if (miamiSpecialWeather === "Thunderstorm") {
+        miamiCloudCondition = "Thunderstorm"
+    } else {
+        miamiCloudCondition = miamiCloudCondition;
+    }
 
     if (miamiCloudCondition === "cloudy") {
         document.getElementById('miamiWeatherPic').setAttribute("src", "Cloudy.gif"); 
     } else if (miamiCloudCondition === "sunny") {
         document.getElementById('miamiWeatherPic').setAttribute("src", "Sunshine.gif");
+    } else if (miamiCloudCondition === "Rain"){
+        document.getElementById('miamiWeatherPic').setAttribute("src", "Raining.gif");
+    } else if (miamiCloudCondition === "Snow"){
+        document.getElementById('miamiWeatherPic').setAttribute("src", "Snowing.gif");
+    } else if (miamiCloudCondition === "Thunderstorm"){
+        document.getElementById('miamiWeatherPic').setAttribute("src", "Storming.gif");
     }
 
     document.getElementById('miamiTemperature').textContent = locationMiaTemperature;
@@ -259,11 +327,28 @@ async function dallasWeatherGrab() {
     let locationDalTemperature = Math.round(data.main.temp);
     let cloudAmount = data.clouds.all;
     let dallasCloudCondition = (cloudAmount > 50) ? "cloudy" : "sunny";
+    let dallasSpecialWeather = data.weather[0].main;
+
+    if (dallasSpecialWeather === "Rain") {
+        dallasCloudCondition = "Rain";
+    } else if (dallasSpecialWeather === "Snow") {
+        dallasCloudCondition = "Snow"
+    } else if (dallasSpecialWeather === "Thunderstorm") {
+        dallasCloudCondition = "Thunderstorm"
+    } else {
+        dallasCloudCondition = dallasCloudCondition;
+    }
 
     if (dallasCloudCondition === "cloudy") {
         document.getElementById('dallasWeatherPic').setAttribute("src", "Cloudy.gif"); 
     } else if (dallasCloudCondition === "sunny") {
         document.getElementById('dallasWeatherPic').setAttribute("src", "Sunshine.gif");
+    } else if (dallasCloudCondition === "Rain"){
+        document.getElementById('dallasWeatherPic').setAttribute("src", "Raining.gif");
+    } else if (dallasCloudCondition === "Snow"){
+        document.getElementById('dallasWeatherPic').setAttribute("src", "Snowing.gif");
+    } else if (dallasCloudCondition === "Thunderstorm"){
+        document.getElementById('dallasWeatherPic').setAttribute("src", "Storming.gif");
     }
 
     document.getElementById('dallasTemperature').textContent = locationDalTemperature;
