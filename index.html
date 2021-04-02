@@ -47,7 +47,7 @@
         <div align=center><span id="localTime"></span>
         </div>
     </div>
-    <div id="currentWeather">
+    <div class="container-fluid" id="currentWeather">
         <div align=center id="toggleButton">
             <button onclick="toggleButton()" type="button" id="unitButton" class="btn btn-primary btn-lg">Metric</button>
         </div>
@@ -65,6 +65,9 @@
         <h2>Humidity: <span id="humidity"></span></h2>
         <h2>Wind Speed: <span id="wind"></span><span id="unitSpeed"></span></h2>
         <h2>Visibility: <span id="visibil"></span><span id="visibilityUnit"></span></h2>
+    </div>
+    <div class="container-fluid" id="weatherForecast">
+        <div align=center><h5>The Next Five Day Forecast</h5></div>
     </div>
 </body>
     <script src="main.js"></script>

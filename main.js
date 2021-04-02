@@ -5,10 +5,13 @@
 // Background limited with console up and scrolling down
 
 // To Do
-// Create moon instead of sun for night time clear skies
 // Prettify called weather timestamp
 // Add weather response features (sunshine and light background for clear weather, etc)
 // Open Street Map for Weather Map?
+// Add Forecast Box
+// Hover Shadow For Metric Button
+// Hover Shadow For Go! Button
+// Convert meters to kilometers
 
 let input = document.getElementById("userLocationInput");
 let cityName = 'San Diego';
@@ -127,16 +130,29 @@ async function getWeather() {
         currentCondition = currentCondition;
     }
 
-    if (unixTime > sunRise && unixTime < sunSet) {
-        // Sun picture if clear
+    if (unixTime > sunRise && unixTime < sunSet) { // Determining Time and Setting currentCondition to Moon If Appropriate
+        if (currentCondition === "sunny") {
+            currentCondition = "sunny";
+        } else {
+            currentCondition = currentCondition;
+        }
     } else if (unixTime > sunRise && unixTime > sunSet) {
-        // Moon picture if clear
+        if (currentCondition === "sunny") {
+            currentCondition = "moon";
+        } else {
+            currentCondition = currentCondition;
+        }
     } else if (unixTime < sunRise && unixTime < sunSet) {
-        // Moon picture if clear
+        if (currentCondition === "sunny") {
+            currentCondition = "moon";
+        } else {
+            currentCondition = currentCondition;
+        }
     }
 
-    console.log(unixTime);
-    console.log(timeStamp);
+    if (currentCondition === "moon") { // If currentCondition is moon, change weather emblem
+        document.getElementById('weatherPic').setAttribute("src", "moon.gif");
+    }
 
     document.getElementById('localTime').textContent = localTime;
     document.getElementById('city').textContent = location;
@@ -188,7 +204,7 @@ function cloudCheck() { // Checks for cloudy vs clear weather
 
 getWeather();
 
-async function newYorkWeatherGrab() {
+async function newYorkWeatherGrab() { // New York Top Bar API Weather Call
     let newYorkAPICall = 'http://api.openweathermap.org/data/2.5/weather?q=Manhattan&units=metric&appid=278afa8fabdf943e1a3ead235406b4a5';
     const response = await fetch(newYorkAPICall);
     const data = await response.json();
@@ -225,7 +241,7 @@ async function newYorkWeatherGrab() {
 
 newYorkWeatherGrab();
 
-async function losAngelesWeatherGrab() {
+async function losAngelesWeatherGrab() { // LA Top Bar API Weather Call
     let losAngelesAPICall = 'http://api.openweathermap.org/data/2.5/weather?q=los angeles&units=metric&appid=278afa8fabdf943e1a3ead235406b4a5';
     const response = await fetch(losAngelesAPICall);
     const data = await response.json();
@@ -262,7 +278,7 @@ async function losAngelesWeatherGrab() {
 
 losAngelesWeatherGrab();
 
-async function bostonWeatherGrab() {
+async function bostonWeatherGrab() { // Boston Top Bar Weather Call
     let bostonAPICall = 'http://api.openweathermap.org/data/2.5/weather?q=boston&units=metric&appid=278afa8fabdf943e1a3ead235406b4a5';
     const response = await fetch(bostonAPICall);
     const data = await response.json();
@@ -299,7 +315,7 @@ async function bostonWeatherGrab() {
 
 bostonWeatherGrab();
 
-async function miamiWeatherGrab() {
+async function miamiWeatherGrab() { // Miami Top Bar API Call
     let miamiAPICall = 'http://api.openweathermap.org/data/2.5/weather?q=miami&units=metric&appid=278afa8fabdf943e1a3ead235406b4a5';
     const response = await fetch(miamiAPICall);
     const data = await response.json();
@@ -336,7 +352,7 @@ async function miamiWeatherGrab() {
 
 miamiWeatherGrab();
 
-async function dallasWeatherGrab() {
+async function dallasWeatherGrab() { // Dallas Top Bar API Call
     let dallasAPICall = 'http://api.openweathermap.org/data/2.5/weather?q=dallas&units=metric&appid=278afa8fabdf943e1a3ead235406b4a5';
     const response = await fetch(dallasAPICall);
     const data = await response.json();

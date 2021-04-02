@@ -21,6 +21,7 @@ body {
     opacity: 80%;
     box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
     transition: 0.3s;
+    z-index: 1;
 }
 
 #topBar:hover {
@@ -105,9 +106,9 @@ body {
 }
 
 #currentWeather {
-    left: 37%;
     position: relative;
-    transform: translate(0%, 5%);
+    float: left;
+    left: 450px;
     height: 700px;
     width: 460px;
     background-color: rgb(29, 66, 109);
@@ -125,6 +126,30 @@ body {
 }
 
 #currentWeather:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
+}
+
+#weatherForecast {
+    position: relative;
+    float: right;
+    right: 460px;
+    height: 700px;
+    width: 460px;
+    background-color: rgb(29, 66, 109);
+    border-radius: 5px;
+    transition: 0.3s;
+    border-top: 2px solid rgb(1, 64, 146);
+    border-left: 2px solid rgb(1, 64, 146);
+    border-right: 2px solid rgb(1, 64, 146);
+    border-bottom: 2px solid rgb(1, 64, 146);
+    padding: 50px;
+    margin: 10px;
+    color: white;
+    opacity: 80%;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
+}
+
+#weatherForecast:hover {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
 }
 
@@ -173,6 +198,10 @@ body {
         top: -5% !important;
         left: 0% !important;
         margin: unset !important;
+    }
+
+    [id*"weatherForecast"] {
+        display: none;
     }
     
     [id*="topBar"] {
