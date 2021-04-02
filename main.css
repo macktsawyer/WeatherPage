@@ -27,6 +27,25 @@ body {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
 }
 
+#timeBox {
+    width: 200px;
+    height: 30px;
+    margin: 1px;
+    color: white;
+    right: -44%;
+    border: 2px solid rgb(1, 64, 146);
+    border-top: 0px;
+    border-radius: 4px;
+    position: relative;
+    background-color: rgb(29, 66, 109);
+    opacity: 80%;
+    z-index: 2;
+}
+
+#timeBox:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
+}
+
 #newYorkWeather {
     border: 1px rgb(1, 64, 146);
     color: white;
@@ -86,7 +105,7 @@ body {
 }
 
 #currentWeather {
-    left: 38%;
+    left: 37%;
     position: relative;
     transform: translate(0%, 5%);
     height: 700px;
@@ -144,6 +163,10 @@ body {
         overflow-y: hidden;
     }
     
+    [id*="timeBox"] {
+        display: none;
+    }
+
     [id*="currentWeather"] {
         width: 100vw !important;  
         height: 100vh !important;

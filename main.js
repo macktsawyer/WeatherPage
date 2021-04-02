@@ -2,13 +2,13 @@
 
 // Known Issues
 // New location while on 'imperial' causes info reporting error
+// Background limited with console up and scrolling down
 
 // To Do
 // Create moon instead of sun for night time clear skies
-// Create a way for timestamp to reflect the timezone of the reported weather
+// Prettify called weather timestamp
 // Add weather response features (sunshine and light background for clear weather, etc)
 // Open Street Map for Weather Map?
-// Weather emblems for topBar special weather
 
 let input = document.getElementById("userLocationInput");
 let cityName = 'San Diego';
@@ -16,7 +16,7 @@ let currentTempUnit = "°C";
 let currentSpeedUnit = "mps";
 let currentDistanceUnit = "+ meters";
 let timeStamp = new Date();
-let localeTime = timeStamp.toLocaleString();
+let localTime = timeStamp.toLocaleString();
 let currentCondition = "cloudy";
 let specialWeather = "Clear";
 
@@ -107,11 +107,17 @@ async function getWeather() {
     let minimumTemp = Math.round(data.main.temp_min);
     let maximumTemp = Math.round(data.main.temp_max);
     let cloudAmount = data.clouds.all;
+    let timeZoneOffset = data.timezone; // TZ offset of area where weather was called by user
+    let weatherCallTime = new Date((new Date().getTime())+(timeZoneOffset*1000));
+    let weatherCallRevised = weatherCallTime.toISOString(); // Time for area where weather was called by user
+    let unixTime = data.dt; // Unix time for comparing to sunrise and sunset
+    let sunRise = data.sys.sunrise;
+    let sunSet = data.sys.sunset;
     specialWeather = data.weather[0].main;
 
     currentCondition = (cloudAmount > 50) ? "cloudy" : "sunny";
 
-    if (specialWeather === "Rain") {
+    if (specialWeather === "Rain") {  // Weather emblem changes specific to special weather conditions
         currentCondition = "Rain";
     } else if (specialWeather === "Snow") {
         currentCondition = "Snow"
@@ -121,10 +127,20 @@ async function getWeather() {
         currentCondition = currentCondition;
     }
 
+    if (unixTime > sunRise && unixTime < sunSet) {
+        // Sun picture if clear
+    } else if (unixTime > sunRise && unixTime > sunSet) {
+        // Moon picture if clear
+    } else if (unixTime < sunRise && unixTime < sunSet) {
+        // Moon picture if clear
+    }
+
+    console.log(unixTime);
     console.log(timeStamp);
 
+    document.getElementById('localTime').textContent = localTime;
     document.getElementById('city').textContent = location;
-    document.getElementById('time').textContent = localeTime;
+    document.getElementById('callTime').textContent = weatherCallRevised; // Timestamp
     document.getElementById('temp').textContent = temperature;
     document.getElementById('minTemp').textContent = minimumTemp;
     document.getElementById('maxTemp').textContent = maximumTemp;
