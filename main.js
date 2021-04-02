@@ -8,9 +8,7 @@
 // Prettify called weather timestamp
 // Add weather response features (sunshine and light background for clear weather, etc)
 // Open Street Map for Weather Map?
-// Add Forecast Box
-// Hover Shadow For Metric Button
-// Hover Shadow For Go! Button
+// Add Forecasted Weather
 // Convert meters to kilometers
 
 let input = document.getElementById("userLocationInput");
