@@ -20,6 +20,8 @@ let timeStamp = new Date();
 let localTime = timeStamp.toLocaleString();
 let currentCondition = "cloudy";
 let specialWeather = "Clear";
+let latitude;
+let longitude;
 
 function toggleButton() {
     let btn = document.getElementById('unitButton');
@@ -115,6 +117,8 @@ async function getWeather() {
     let sunRise = data.sys.sunrise;
     let sunSet = data.sys.sunset;
     specialWeather = data.weather[0].main;
+    latitude = data.coord.lat;
+    longitude = data.coord.lon;
 
     currentCondition = (cloudAmount > 50) ? "cloudy" : "sunny";
 
@@ -170,7 +174,24 @@ async function getWeather() {
     document.getElementById('visibilityUnit').textContent = currentDistanceUnit;
 
     cloudCheck();
+    getForecast();
 };
+
+async function getForecast() {
+    let forecastApi = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + latitude + '&lon=' + longitude + '&exclude=current,minutely,hourly&appid=278afa8fabdf943e1a3ead235406b4a5' // Forecast API
+    const response = await fetch(forecastApi);
+    const data = await response.json();
+    let timeZoneOffset = data.timezone_offset; // TZ offset of area where weather was called by user
+    let weatherCallTime = new Date((new Date().getTime())+(timeZoneOffset*1000));
+    let weatherCallRevised = weatherCallTime.toDateString();
+    let dayOneDate = data.daily[1].dt;
+    let dayTwoDate = data.daily[2].dt;
+    let dayThreeDate = data.daily[3].dt;
+    let dayFourDate = data.daily[4].dt;
+    let dayFiveDate = data.daily[5].dt;
+
+    console.log(data);
+}
 
 document.getElementById('userLocationButton').addEventListener('click', function getNewLocation() { 
     let newValue = document.getElementById('userLocationInput').value;
