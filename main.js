@@ -206,24 +206,43 @@ async function getForecast() {
     document.getElementById('dayOneForeDate').textContent = dayOneMonth.toString() + "/" + dayOneDay.toString();
     document.getElementById('dayOneTemperature').textContent = Math.round(data.daily[1].temp.day);
     document.getElementById('dayOneUnits').textContent = " " + currentTempUnit;
+    document.getElementById('dayOneMin').textContent = Math.round(data.daily[1].temp.min);
+    document.getElementById('dayOneMinUnits').textContent = " " + currentTempUnit;
+    document.getElementById('dayOneMax').textContent = Math.round(data.daily[1].temp.max);
+    document.getElementById('dayOneMaxUnits').textContent = " " + currentTempUnit;
 
     document.getElementById('dayTwoForeDate').textContent = dayTwoMonth.toString() + "/" + dayTwoDay.toString();
     document.getElementById('dayTwoTemperature').textContent = Math.round(data.daily[2].temp.day);
     document.getElementById('dayTwoUnits').textContent = " " + currentTempUnit;
+    document.getElementById('dayTwoMin').textContent = Math.round(data.daily[2].temp.min);
+    document.getElementById('dayTwoMinUnits').textContent = " " + currentTempUnit;
+    document.getElementById('dayTwoMax').textContent = Math.round(data.daily[2].temp.max);
+    document.getElementById('dayTwoMaxUnits').textContent = " " + currentTempUnit;
 
     document.getElementById('dayThreeForeDate').textContent = dayThreeMonth.toString() + "/" + dayThreeDay.toString();
     document.getElementById('dayThreeTemperature').textContent = Math.round(data.daily[3].temp.day);
     document.getElementById('dayThreeUnits').textContent = " " + currentTempUnit;
+    document.getElementById('dayThreeMin').textContent = Math.round(data.daily[3].temp.min);
+    document.getElementById('dayThreeMinUnits').textContent = " " + currentTempUnit;
+    document.getElementById('dayThreeMax').textContent = Math.round(data.daily[3].temp.max);
+    document.getElementById('dayThreeMaxUnits').textContent = " " + currentTempUnit;
 
     document.getElementById('dayFourForeDate').textContent = dayFourMonth.toString() + "/" + dayFourDay.toString();
     document.getElementById('dayFourTemperature').textContent = Math.round(data.daily[4].temp.day);
     document.getElementById('dayFourUnits').textContent = " " + currentTempUnit;
+    document.getElementById('dayFourMin').textContent = Math.round(data.daily[4].temp.min);
+    document.getElementById('dayFourMinUnits').textContent = " " + currentTempUnit;
+    document.getElementById('dayFourMax').textContent = Math.round(data.daily[4].temp.max);
+    document.getElementById('dayFourMaxUnits').textContent = " " + currentTempUnit;
 
     document.getElementById('dayFiveForeDate').textContent = dayFiveMonth.toString() + "/" + dayFiveDay.toString();
     document.getElementById('dayFiveTemperature').textContent = Math.round(data.daily[5].temp.day);
     document.getElementById('dayFiveUnits').textContent = " " + currentTempUnit;
+    document.getElementById('dayFiveMin').textContent = Math.round(data.daily[5].temp.min);
+    document.getElementById('dayFiveMinUnits').textContent = " " + currentTempUnit;
+    document.getElementById('dayFiveMax').textContent = Math.round(data.daily[5].temp.max);
+    document.getElementById('dayFiveMaxUnits').textContent = " " + currentTempUnit;
 
-    console.log(dayOneMonth, dayOneDay);
     console.log(data);
 }
 
