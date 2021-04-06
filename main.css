@@ -153,6 +153,26 @@ body {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
 }
 
+#dayOneForeDate {
+    font-size: 25px;
+}
+
+#dayTwoForeDate {
+    font-size: 25px;
+}
+
+#dayThreeForeDate {
+    font-size: 25px;
+}
+
+#dayFourForeDate {
+    font-size: 25px;
+}
+
+#dayFiveForeDate {
+    font-size: 25px;
+}
+
 #toggleButton {
     position: relative;
     padding: 0px;

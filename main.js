@@ -10,6 +10,7 @@
 // Open Street Map for Weather Map?
 // Add Forecasted Weather
 // Convert meters to kilometers
+// Top bar needs moon feature
 
 let input = document.getElementById("userLocationInput");
 let cityName = 'San Diego';
@@ -178,18 +179,51 @@ async function getWeather() {
 };
 
 async function getForecast() {
-    let forecastApi = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + latitude + '&lon=' + longitude + '&exclude=current,minutely,hourly&appid=278afa8fabdf943e1a3ead235406b4a5' // Forecast API
+    let forecastApi = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + latitude + '&lon=' + longitude + '&exclude=current,minutely,hourly&units=metric&appid=278afa8fabdf943e1a3ead235406b4a5' // Forecast API
     const response = await fetch(forecastApi);
     const data = await response.json();
-    let timeZoneOffset = data.timezone_offset; // TZ offset of area where weather was called by user
-    let weatherCallTime = new Date((new Date().getTime())+(timeZoneOffset*1000));
-    let weatherCallRevised = weatherCallTime.toDateString();
-    let dayOneDate = data.daily[1].dt;
-    let dayTwoDate = data.daily[2].dt;
-    let dayThreeDate = data.daily[3].dt;
-    let dayFourDate = data.daily[4].dt;
-    let dayFiveDate = data.daily[5].dt;
+    let dayOneUnix = data.daily[1].dt;
+    let dayOneDate = new Date(dayOneUnix * 1000);
+    let dayOneMonth = dayOneDate.getMonth() + 1;
+    let dayOneDay = dayOneDate.getDate();
+    let dayTwoUnix = data.daily[2].dt;
+    let dayTwoDate = new Date(dayTwoUnix * 1000);
+    let dayTwoMonth = dayTwoDate.getMonth() + 1;
+    let dayTwoDay = dayTwoDate.getDate();
+    let dayThreeUnix = data.daily[3].dt;
+    let dayThreeDate = new Date(dayThreeUnix * 1000);
+    let dayThreeMonth = dayThreeDate.getMonth() + 1;
+    let dayThreeDay = dayThreeDate.getDate();
+    let dayFourUnix = data.daily[4].dt;
+    let dayFourDate = new Date(dayFourUnix * 1000);
+    let dayFourMonth = dayFourDate.getMonth() + 1;
+    let dayFourDay = dayFourDate.getDate();
+    let dayFiveUnix = data.daily[5].dt;
+    let dayFiveDate = new Date(dayFiveUnix * 1000);
+    let dayFiveMonth = dayFiveDate.getMonth() + 1;
+    let dayFiveDay = dayFiveDate.getDate();
 
+    document.getElementById('dayOneForeDate').textContent = dayOneMonth.toString() + "/" + dayOneDay.toString();
+    document.getElementById('dayOneTemperature').textContent = Math.round(data.daily[1].temp.day);
+    document.getElementById('dayOneUnits').textContent = " " + currentTempUnit;
+
+    document.getElementById('dayTwoForeDate').textContent = dayTwoMonth.toString() + "/" + dayTwoDay.toString();
+    document.getElementById('dayTwoTemperature').textContent = Math.round(data.daily[2].temp.day);
+    document.getElementById('dayTwoUnits').textContent = " " + currentTempUnit;
+
+    document.getElementById('dayThreeForeDate').textContent = dayThreeMonth.toString() + "/" + dayThreeDay.toString();
+    document.getElementById('dayThreeTemperature').textContent = Math.round(data.daily[3].temp.day);
+    document.getElementById('dayThreeUnits').textContent = " " + currentTempUnit;
+
+    document.getElementById('dayFourForeDate').textContent = dayFourMonth.toString() + "/" + dayFourDay.toString();
+    document.getElementById('dayFourTemperature').textContent = Math.round(data.daily[4].temp.day);
+    document.getElementById('dayFourUnits').textContent = " " + currentTempUnit;
+
+    document.getElementById('dayFiveForeDate').textContent = dayFiveMonth.toString() + "/" + dayFiveDay.toString();
+    document.getElementById('dayFiveTemperature').textContent = Math.round(data.daily[5].temp.day);
+    document.getElementById('dayFiveUnits').textContent = " " + currentTempUnit;
+
+    console.log(dayOneMonth, dayOneDay);
     console.log(data);
 }
 
