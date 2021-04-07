@@ -157,20 +157,122 @@ body {
     font-size: 25px;
 }
 
+#dayOneTemperature {
+    float: center;
+}
+
+#dayOneMin {
+    float: center;
+}
+
+#dayOneMax {
+    float: center;
+}
+
+#dayOneWindDiv {
+    float: right;
+}
+
+#dayOneHumidtyDiv {
+    float: right;
+}
+
+#dayOnePressureDiv {
+    float: right;
+}
+
+#dayOnePic {
+    height: 50px;
+    width: 50px;
+    float: left;
+}
+
 #dayTwoForeDate {
     font-size: 25px;
+}
+
+#dayTwoWind {
+    float: right;
+}
+
+#dayTwoHumidty {
+    float: right;
+}
+
+#dayTwoPressure {
+    float: right;
+}
+
+#dayTwoPic {
+    height: 50px;
+    width: 50px;
+    float: left;
 }
 
 #dayThreeForeDate {
     font-size: 25px;
 }
 
+#dayThreeWind {
+    float: right;
+}
+
+#dayThreeHumidty {
+    float: right;
+}
+
+#dayThreePressure {
+    float: right;
+}
+
+#dayThreePic {
+    height: 50px;
+    width: 50px;
+    float: left;
+}
+
 #dayFourForeDate {
     font-size: 25px;
 }
 
+#dayFourWind {
+    float: right;
+}
+
+#dayFourHumidty {
+    float: right;
+}
+
+#dayFourPressure {
+    float: right;
+}
+
+#dayFourPic {
+    height: 50px;
+    width: 50px;
+    float: left;
+}
+
 #dayFiveForeDate {
     font-size: 25px;
+}
+
+#dayFiveWind {
+    float: right;
+}
+
+#dayFiveHumidty {
+    float: right;
+}
+
+#dayFivePressure {
+    float: right;
+}
+
+#dayFivePic {
+    height: 50px;
+    width: 50px;
+    float: left;
 }
 
 #toggleButton {

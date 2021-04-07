@@ -188,22 +188,173 @@ async function getForecast() {
     let dayOneDate = new Date(dayOneUnix * 1000);
     let dayOneMonth = dayOneDate.getMonth() + 1;
     let dayOneDay = dayOneDate.getDate();
+    let dayOneClouds = data.daily[1].clouds;
+    let dayOneCondition = "Clear";
+    let dayOneSpecial = data.daily[1].weather[0].main;
+    let dayOneWind = data.daily[1].wind_speed;
+    let dayOneHumidity = data.daily[1].humidity;
+    let dayOnePressure = data.daily[1].pressure;
     let dayTwoUnix = data.daily[2].dt;
     let dayTwoDate = new Date(dayTwoUnix * 1000);
     let dayTwoMonth = dayTwoDate.getMonth() + 1;
     let dayTwoDay = dayTwoDate.getDate();
+    let dayTwoClouds = data.daily[2].clouds;
+    let dayTwoCondition = "Clear";
+    let dayTwoSpecial = data.daily[2].weather[0].main;
+    let dayTwoWind = data.daily[2].wind_speed;
+    let dayTwoHumidity = data.daily[2].humidity;
+    let dayTwoPressure = data.daily[2].pressure;
     let dayThreeUnix = data.daily[3].dt;
     let dayThreeDate = new Date(dayThreeUnix * 1000);
     let dayThreeMonth = dayThreeDate.getMonth() + 1;
     let dayThreeDay = dayThreeDate.getDate();
+    let dayThreeClouds = data.daily[3].clouds;
+    let dayThreeCondition = "Clear";
+    let dayThreeSpecial = data.daily[3].weather[0].main;
+    let dayThreeWind = data.daily[3].wind_speed;
+    let dayThreeHumidity = data.daily[3].humidity;
+    let dayThreePressure = data.daily[3].pressure;
     let dayFourUnix = data.daily[4].dt;
     let dayFourDate = new Date(dayFourUnix * 1000);
     let dayFourMonth = dayFourDate.getMonth() + 1;
     let dayFourDay = dayFourDate.getDate();
+    let dayFourClouds = data.daily[4].clouds;
+    let dayFourCondition = "Clear";
+    let dayFourSpecial = data.daily[4].weather[0].main;
+    let dayFourWind = data.daily[4].wind_speed;
+    let dayFourHumidity = data.daily[4].humidity;
+    let dayFourPressure = data.daily[4].pressure;
     let dayFiveUnix = data.daily[5].dt;
     let dayFiveDate = new Date(dayFiveUnix * 1000);
     let dayFiveMonth = dayFiveDate.getMonth() + 1;
     let dayFiveDay = dayFiveDate.getDate();
+    let dayFiveClouds = data.daily[5].clouds;
+    let dayFiveCondition = "Clear";
+    let dayFiveSpecial = data.daily[5].weather[0].main;
+    let dayFiveWind = data.daily[5].wind_speed;
+    let dayFiveHumidity = data.daily[5].humidity;
+    let dayFivePressure = data.daily[5].pressure;
+
+    dayOneCondition = (dayOneClouds > 50) ? "cloudy" : "sunny";
+
+    if (dayOneSpecial === "Rain") {  // Weather emblem changes specific to special weather conditions
+        dayOneCondition = "Rain";
+    } else if (dayOneSpecial === "Snow") {
+        dayOneCondition = "Snow"
+    } else if (dayOneSpecial === "Thunderstorm") {
+        dayOneCondition = "Thunderstorm"
+    } else {
+        dayOneCondition = dayOneCondition;
+    }
+
+    if (dayOneCondition === "cloudy") {
+        document.getElementById('dayOnePic').setAttribute("src", "Cloudy.gif"); 
+    } else if (dayOneCondition === "sunny") {
+        document.getElementById('dayOnePic').setAttribute("src", "Sunshine.gif");
+    } else if (dayOneCondition === "Rain"){
+        document.getElementById('dayOnePic').setAttribute("src", "Raining.gif");
+    } else if (dayOneCondition === "Snow"){
+        document.getElementById('dayOnePic').setAttribute("src", "Snowing.gif");
+    } else if (dayOneCondition === "Thunderstorm"){
+        document.getElementById('dayOnePic').setAttribute("src", "Storming.gif");
+    }
+
+    dayTwoCondition = (dayTwoClouds > 50) ? "cloudy" : "sunny";
+
+    if (dayTwoSpecial === "Rain") {  // Weather emblem changes specific to special weather conditions
+        dayTwoCondition = "Rain";
+    } else if (dayTwoSpecial === "Snow") {
+        dayTwoCondition = "Snow"
+    } else if (dayTwoSpecial === "Thunderstorm") {
+        dayTwoCondition = "Thunderstorm"
+    } else {
+        dayTwoCondition = dayTwoCondition;
+    }
+
+    if (dayTwoCondition === "cloudy") {
+        document.getElementById('dayTwoPic').setAttribute("src", "Cloudy.gif"); 
+    } else if (dayTwoCondition === "sunny") {
+        document.getElementById('dayTwoPic').setAttribute("src", "Sunshine.gif");
+    } else if (dayTwoCondition === "Rain"){
+        document.getElementById('dayTwoPic').setAttribute("src", "Raining.gif");
+    } else if (dayTwoCondition === "Snow"){
+        document.getElementById('dayTwoPic').setAttribute("src", "Snowing.gif");
+    } else if (dayTwoCondition === "Thunderstorm"){
+        document.getElementById('dayTwoPic').setAttribute("src", "Storming.gif");
+    }
+
+    dayThreeCondition = (dayThreeClouds > 50) ? "cloudy" : "sunny";
+
+    if (dayThreeSpecial === "Rain") {  // Weather emblem changes specific to special weather conditions
+        dayThreeCondition = "Rain";
+    } else if (dayThreeSpecial === "Snow") {
+        dayThreeCondition = "Snow"
+    } else if (dayThreeSpecial === "Thunderstorm") {
+        dayThreeCondition = "Thunderstorm"
+    } else {
+        dayThreeCondition = dayThreeCondition;
+    }
+
+    if (dayThreeCondition === "cloudy") {
+        document.getElementById('dayThreePic').setAttribute("src", "Cloudy.gif"); 
+    } else if (dayThreeCondition === "sunny") {
+        document.getElementById('dayThreePic').setAttribute("src", "Sunshine.gif");
+    } else if (dayThreeCondition === "Rain"){
+        document.getElementById('dayThreePic').setAttribute("src", "Raining.gif");
+    } else if (dayThreeCondition === "Snow"){
+        document.getElementById('dayThreePic').setAttribute("src", "Snowing.gif");
+    } else if (dayThreeCondition === "Thunderstorm"){
+        document.getElementById('dayThreePic').setAttribute("src", "Storming.gif");
+    }
+
+
+    dayFourCondition = (dayFourClouds > 50) ? "cloudy" : "sunny";
+
+    if (dayFourSpecial === "Rain") {  // Weather emblem changes specific to special weather conditions
+        dayFourCondition = "Rain";
+    } else if (dayFourSpecial === "Snow") {
+        dayFourCondition = "Snow"
+    } else if (dayFourSpecial === "Thunderstorm") {
+        dayFourCondition = "Thunderstorm"
+    } else {
+        dayFourCondition = dayFourCondition;
+    }
+
+    if (dayFourCondition === "cloudy") {
+        document.getElementById('dayFourPic').setAttribute("src", "Cloudy.gif"); 
+    } else if (dayFourCondition === "sunny") {
+        document.getElementById('dayFourPic').setAttribute("src", "Sunshine.gif");
+    } else if (dayFourCondition === "Rain"){
+        document.getElementById('dayFourPic').setAttribute("src", "Raining.gif");
+    } else if (dayFourCondition === "Snow"){
+        document.getElementById('dayFourPic').setAttribute("src", "Snowing.gif");
+    } else if (dayFourCondition === "Thunderstorm"){
+        document.getElementById('dayFourPic').setAttribute("src", "Storming.gif");
+    }
+
+    dayFiveCondition = (dayFiveClouds > 50) ? "cloudy" : "sunny";
+
+    if (dayFiveSpecial === "Rain") {  // Weather emblem changes specific to special weather conditions
+        dayFiveCondition = "Rain";
+    } else if (dayFiveSpecial === "Snow") {
+        dayFiveCondition = "Snow"
+    } else if (dayFiveSpecial === "Thunderstorm") {
+        dayFiveCondition = "Thunderstorm"
+    } else {
+        dayFiveCondition = dayFiveCondition;
+    }
+
+    if (dayFiveCondition === "cloudy") {
+        document.getElementById('dayFivePic').setAttribute("src", "Cloudy.gif"); 
+    } else if (dayFiveCondition === "sunny") {
+        document.getElementById('dayFivePic').setAttribute("src", "Sunshine.gif");
+    } else if (dayFiveCondition === "Rain"){
+        document.getElementById('dayFivePic').setAttribute("src", "Raining.gif");
+    } else if (dayFiveCondition === "Snow"){
+        document.getElementById('dayFivePic').setAttribute("src", "Snowing.gif");
+    } else if (dayFiveCondition === "Thunderstorm"){
+        document.getElementById('dayFivePic').setAttribute("src", "Storming.gif");
+    }
 
     document.getElementById('dayOneForeDate').textContent = dayOneMonth.toString() + "/" + dayOneDay.toString();
     document.getElementById('dayOneTemperature').textContent = Math.round(data.daily[1].temp.day);
@@ -212,6 +363,12 @@ async function getForecast() {
     document.getElementById('dayOneMinUnits').textContent = " " + currentTempUnit;
     document.getElementById('dayOneMax').textContent = Math.round(data.daily[1].temp.max);
     document.getElementById('dayOneMaxUnits').textContent = " " + currentTempUnit;
+    document.getElementById('dayOneWind').textContent = Math.round(data.daily[1].wind_speed);
+    document.getElementById('dayOneHumidity').textContent = Math.round(data.daily[1].humidity);
+    document.getElementById('dayOnePressure').textContent = Math.round(data.daily[1].pressure);
+    console.log(data.daily[1].wind_speed);
+    console.log(data.daily[1].humidity);
+    console.log(data.daily[1].pressure);
 
     document.getElementById('dayTwoForeDate').textContent = dayTwoMonth.toString() + "/" + dayTwoDay.toString();
     document.getElementById('dayTwoTemperature').textContent = Math.round(data.daily[2].temp.day);
@@ -220,6 +377,9 @@ async function getForecast() {
     document.getElementById('dayTwoMinUnits').textContent = " " + currentTempUnit;
     document.getElementById('dayTwoMax').textContent = Math.round(data.daily[2].temp.max);
     document.getElementById('dayTwoMaxUnits').textContent = " " + currentTempUnit;
+    document.getElementById('dayTwoWind').textContent = Math.round(data.daily[2].wind_speed);
+    document.getElementById('dayTwoHumidity').textContent = Math.round(data.daily[2].humidity);
+    document.getElementById('dayTwoPressure').textContent = Math.round(data.daily[2].pressure);
 
     document.getElementById('dayThreeForeDate').textContent = dayThreeMonth.toString() + "/" + dayThreeDay.toString();
     document.getElementById('dayThreeTemperature').textContent = Math.round(data.daily[3].temp.day);
@@ -228,6 +388,9 @@ async function getForecast() {
     document.getElementById('dayThreeMinUnits').textContent = " " + currentTempUnit;
     document.getElementById('dayThreeMax').textContent = Math.round(data.daily[3].temp.max);
     document.getElementById('dayThreeMaxUnits').textContent = " " + currentTempUnit;
+    document.getElementById('dayThreeWind').textContent = Math.round(data.daily[3].wind_speed);
+    document.getElementById('dayThreeHumidity').textContent = Math.round(data.daily[3].humidity);
+    document.getElementById('dayThreePressure').textContent = Math.round(data.daily[3].pressure);
 
     document.getElementById('dayFourForeDate').textContent = dayFourMonth.toString() + "/" + dayFourDay.toString();
     document.getElementById('dayFourTemperature').textContent = Math.round(data.daily[4].temp.day);
@@ -236,6 +399,9 @@ async function getForecast() {
     document.getElementById('dayFourMinUnits').textContent = " " + currentTempUnit;
     document.getElementById('dayFourMax').textContent = Math.round(data.daily[4].temp.max);
     document.getElementById('dayFourMaxUnits').textContent = " " + currentTempUnit;
+    document.getElementById('dayFourWind').textContent = Math.round(data.daily[4].wind_speed);
+    document.getElementById('dayFourHumidity').textContent = Math.round(data.daily[4].humidity);
+    document.getElementById('dayFourPressure').textContent = Math.round(data.daily[4].pressure);
 
     document.getElementById('dayFiveForeDate').textContent = dayFiveMonth.toString() + "/" + dayFiveDay.toString();
     document.getElementById('dayFiveTemperature').textContent = Math.round(data.daily[5].temp.day);
@@ -244,6 +410,10 @@ async function getForecast() {
     document.getElementById('dayFiveMinUnits').textContent = " " + currentTempUnit;
     document.getElementById('dayFiveMax').textContent = Math.round(data.daily[5].temp.max);
     document.getElementById('dayFiveMaxUnits').textContent = " " + currentTempUnit;
+    document.getElementById('dayFiveWind').textContent = Math.round(data.daily[5].wind_speed);
+    document.getElementById('dayFiveHumidity').textContent = Math.round(data.daily[5].humidity);
+    document.getElementById('dayFivePressure').textContent = Math.round(data.daily[5].pressure);
+
 
     console.log(data);
 }
