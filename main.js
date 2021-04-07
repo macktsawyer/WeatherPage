@@ -5,12 +5,14 @@
 // Background limited with console up and scrolling down
 
 // To Do
-// Prettify called weather timestamp
+// Prettify called current weather timestamp
 // Add weather response features (sunshine and light background for clear weather, etc)
 // Open Street Map for Weather Map?
 // Add Forecasted Weather
+// Convert forecasted weather
 // Convert meters to kilometers
 // Top bar needs moon feature
+// Add more comments for easier reading
 
 let input = document.getElementById("userLocationInput");
 let cityName = 'San Diego';
@@ -182,7 +184,7 @@ async function getForecast() {
     let forecastApi = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + latitude + '&lon=' + longitude + '&exclude=current,minutely,hourly&units=metric&appid=278afa8fabdf943e1a3ead235406b4a5' // Forecast API
     const response = await fetch(forecastApi);
     const data = await response.json();
-    let dayOneUnix = data.daily[1].dt;
+    let dayOneUnix = data.daily[1].dt;  // So many variables just for month and day...shewt
     let dayOneDate = new Date(dayOneUnix * 1000);
     let dayOneMonth = dayOneDate.getMonth() + 1;
     let dayOneDay = dayOneDate.getDate();
