@@ -8,7 +8,7 @@
 // Prettify called current weather timestamp
 // Add weather response features (sunshine and light background for clear weather, etc)
 // Open Street Map for Weather Map?
-// Add Forecasted Weather
+// Add Forecasted Weather Units
 // Convert forecasted weather
 // Convert meters to kilometers
 // Top bar needs moon feature
@@ -191,9 +191,6 @@ async function getForecast() {
     let dayOneClouds = data.daily[1].clouds;
     let dayOneCondition = "Clear";
     let dayOneSpecial = data.daily[1].weather[0].main;
-    let dayOneWind = data.daily[1].wind_speed;
-    let dayOneHumidity = data.daily[1].humidity;
-    let dayOnePressure = data.daily[1].pressure;
     let dayTwoUnix = data.daily[2].dt;
     let dayTwoDate = new Date(dayTwoUnix * 1000);
     let dayTwoMonth = dayTwoDate.getMonth() + 1;
@@ -201,9 +198,6 @@ async function getForecast() {
     let dayTwoClouds = data.daily[2].clouds;
     let dayTwoCondition = "Clear";
     let dayTwoSpecial = data.daily[2].weather[0].main;
-    let dayTwoWind = data.daily[2].wind_speed;
-    let dayTwoHumidity = data.daily[2].humidity;
-    let dayTwoPressure = data.daily[2].pressure;
     let dayThreeUnix = data.daily[3].dt;
     let dayThreeDate = new Date(dayThreeUnix * 1000);
     let dayThreeMonth = dayThreeDate.getMonth() + 1;
@@ -211,9 +205,6 @@ async function getForecast() {
     let dayThreeClouds = data.daily[3].clouds;
     let dayThreeCondition = "Clear";
     let dayThreeSpecial = data.daily[3].weather[0].main;
-    let dayThreeWind = data.daily[3].wind_speed;
-    let dayThreeHumidity = data.daily[3].humidity;
-    let dayThreePressure = data.daily[3].pressure;
     let dayFourUnix = data.daily[4].dt;
     let dayFourDate = new Date(dayFourUnix * 1000);
     let dayFourMonth = dayFourDate.getMonth() + 1;
@@ -221,9 +212,6 @@ async function getForecast() {
     let dayFourClouds = data.daily[4].clouds;
     let dayFourCondition = "Clear";
     let dayFourSpecial = data.daily[4].weather[0].main;
-    let dayFourWind = data.daily[4].wind_speed;
-    let dayFourHumidity = data.daily[4].humidity;
-    let dayFourPressure = data.daily[4].pressure;
     let dayFiveUnix = data.daily[5].dt;
     let dayFiveDate = new Date(dayFiveUnix * 1000);
     let dayFiveMonth = dayFiveDate.getMonth() + 1;
@@ -231,9 +219,6 @@ async function getForecast() {
     let dayFiveClouds = data.daily[5].clouds;
     let dayFiveCondition = "Clear";
     let dayFiveSpecial = data.daily[5].weather[0].main;
-    let dayFiveWind = data.daily[5].wind_speed;
-    let dayFiveHumidity = data.daily[5].humidity;
-    let dayFivePressure = data.daily[5].pressure;
 
     dayOneCondition = (dayOneClouds > 50) ? "cloudy" : "sunny";
 
@@ -306,7 +291,6 @@ async function getForecast() {
     } else if (dayThreeCondition === "Thunderstorm"){
         document.getElementById('dayThreePic').setAttribute("src", "Storming.gif");
     }
-
 
     dayFourCondition = (dayFourClouds > 50) ? "cloudy" : "sunny";
 
@@ -413,7 +397,6 @@ async function getForecast() {
     document.getElementById('dayFiveWind').textContent = Math.round(data.daily[5].wind_speed);
     document.getElementById('dayFiveHumidity').textContent = Math.round(data.daily[5].humidity);
     document.getElementById('dayFivePressure').textContent = Math.round(data.daily[5].pressure);
-
 
     console.log(data);
 }
