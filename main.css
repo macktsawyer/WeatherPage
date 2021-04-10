@@ -153,125 +153,148 @@ body {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
 }
 
+#dayOneTitleDiv {
+    float: center;
+}
+
 #dayOneForeDate {
     font-size: 25px;
 }
 
-#dayOneTemperature {
-    float: center;
-}
-
-#dayOneMin {
-    float: center;
-}
-
-#dayOneMax {
-    float: center;
-}
-
-#dayOneWindDiv {
-    float: right;
-}
-
-#dayOneHumidtyDiv {
-    float: right;
-}
-
-#dayOnePressureDiv {
-    float: right;
-}
-
 #dayOnePic {
-    height: 50px;
-    width: 50px;
+    height: 75px;
+    width: 75px;
     float: left;
+}
+
+#dayOneFirstDiv {
+    float: left;
+    width: 110px;
+}
+
+#dayOneSecondDiv {
+    float: left;
+    width: 100px;
+}
+
+#dayOneThirdDiv {
+    float: left;
+}
+
+#dayTwoTitleDiv {
+    float: center;
+    margin-top: 80px;
 }
 
 #dayTwoForeDate {
     font-size: 25px;
+    width: 110px;
 }
 
-#dayTwoWind {
-    float: right;
+#dayTwoFirstDiv {
+    float: left;
+    width: 100px;
 }
 
-#dayTwoHumidty {
-    float: right;
+#dayTwoSecondDiv {
+    float: left;
+    width: 100px;
 }
 
-#dayTwoPressure {
-    float: right;
+#dayTwoThirdDiv {
+    float: left;
 }
 
 #dayTwoPic {
-    height: 50px;
-    width: 50px;
+    height: 75px;
+    width: 75px;
     float: left;
+}
+
+#dayThreeTitleDiv {
+    float: center;
+    margin-top: 80px;
 }
 
 #dayThreeForeDate {
     font-size: 25px;
 }
 
-#dayThreeWind {
-    float: right;
+#dayThreeFirstDiv {
+    float: left;
+    width: 110px;
 }
 
-#dayThreeHumidty {
-    float: right;
+#dayThreeSecondDiv {
+    float: left;
+    width: 100px;
 }
 
-#dayThreePressure {
-    float: right;
+#dayThreeThirdDiv {
+    float: left;
 }
 
 #dayThreePic {
-    height: 50px;
-    width: 50px;
+    height: 75px;
+    width: 75px;
     float: left;
+}
+
+#dayFourTitleDiv {
+    float: center;
+    margin-top: 80px;
 }
 
 #dayFourForeDate {
     font-size: 25px;
 }
 
-#dayFourWind {
-    float: right;
+#dayFourFirstDiv {
+    float: left;
+    width: 110px;
 }
 
-#dayFourHumidty {
-    float: right;
+#dayFourSecondDiv {
+    float: left;
+    width: 100px;
 }
 
-#dayFourPressure {
-    float: right;
+#dayFourThirdDiv {
+    float: left;
 }
 
 #dayFourPic {
-    height: 50px;
-    width: 50px;
+    height: 75px;
+    width: 75px;
     float: left;
+}
+
+#dayFiveTitleDiv {
+    float: center;
+    margin-top: 80px;
 }
 
 #dayFiveForeDate {
     font-size: 25px;
 }
 
-#dayFiveWind {
-    float: right;
+#dayFiveFirstDiv {
+    float: left;
+    width: 110px;
 }
 
-#dayFiveHumidty {
-    float: right;
+#dayFiveSecondDiv {
+    float: left;
+    width: 100px;
 }
 
-#dayFivePressure {
-    float: right;
+#dayFiveThirdDiv {
+    float: left;
 }
 
 #dayFivePic {
-    height: 50px;
-    width: 50px;
+    height: 75px;
+    width: 75px;
     float: left;
 }
 

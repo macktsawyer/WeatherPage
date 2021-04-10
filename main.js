@@ -3,13 +3,12 @@
 // Known Issues
 // New location while on 'imperial' causes info reporting error
 // Background limited with console up and scrolling down
+// Smaller resolution messes with layout and main content
 
 // To Do
 // Prettify called current weather timestamp
 // Add weather response features (sunshine and light background for clear weather, etc)
 // Open Street Map for Weather Map?
-// Add Forecasted Weather Units
-// Convert forecasted weather
 // Convert meters to kilometers
 // Top bar needs moon feature
 // Add more comments for easier reading
@@ -39,6 +38,26 @@ function toggleButton() {
     let bostonTemp = parseInt(document.getElementById('bostonTemperature').textContent);
     let miamiTemp = parseInt(document.getElementById('miamiTemperature').textContent);
     let dallasTemp = parseInt(document.getElementById('dallasTemperature').textContent);
+    let dayOneTempReading = parseInt(document.getElementById('dayOneTemperature').textContent);
+    let dayOneMinReading = parseInt(document.getElementById('dayOneMin').textContent);
+    let dayOneMaxReading = parseInt(document.getElementById('dayOneMax').textContent);
+    let dayOneWindReading = parseInt(document.getElementById('dayOneWind').textContent);
+    let dayTwoTempReading = parseInt(document.getElementById('dayTwoTemperature').textContent);
+    let dayTwoMinReading = parseInt(document.getElementById('dayTwoMin').textContent);
+    let dayTwoMaxReading = parseInt(document.getElementById('dayTwoMax').textContent);
+    let dayTwoWindReading = parseInt(document.getElementById('dayTwoWind').textContent);
+    let dayThreeTempReading = parseInt(document.getElementById('dayThreeTemperature').textContent);
+    let dayThreeMinReading = parseInt(document.getElementById('dayThreeMin').textContent);
+    let dayThreeMaxReading = parseInt(document.getElementById('dayThreeMax').textContent);
+    let dayThreeWindReading = parseInt(document.getElementById('dayThreeWind').textContent);
+    let dayFourTempReading = parseInt(document.getElementById('dayFourTemperature').textContent);
+    let dayFourMinReading = parseInt(document.getElementById('dayFourMin').textContent);
+    let dayFourMaxReading = parseInt(document.getElementById('dayFourMax').textContent);
+    let dayFourWindReading = parseInt(document.getElementById('dayFourWind').textContent);
+    let dayFiveTempReading = parseInt(document.getElementById('dayFiveTemperature').textContent);
+    let dayFiveMinReading = parseInt(document.getElementById('dayFiveMin').textContent);
+    let dayFiveMaxReading = parseInt(document.getElementById('dayFiveMax').textContent);
+    let dayFiveWindReading = parseInt(document.getElementById('dayFiveWind').textContent);
 
     if (btn.innerHTML === 'Metric') {
         btn.innerHTML = 'Imperial'; // Converts button label back to 'Imperial'
@@ -68,6 +87,47 @@ function toggleButton() {
         document.getElementById('topBarUnitMia').textContent = currentTempUnit;
         document.getElementById('dallasTemperature').textContent = Math.round((dallasTemp * (9/5)) + 32);
         document.getElementById('topBarUnitDal').textContent = currentTempUnit;
+        document.getElementById('dayOneTemperature').textContent = Math.round((dayOneTempReading * (9/5)) + 32);
+        document.getElementById('dayOneMin').textContent = Math.round((dayOneMinReading * (9/5)) + 32);
+        document.getElementById('dayOneMax').textContent = Math.round((dayOneMaxReading * (9/5)) + 32);
+        document.getElementById('dayOneWind').textContent = Math.round(dayOneWindReading * 2.237);
+        document.getElementById('dayOneUnits').textContent = currentTempUnit;
+        document.getElementById('dayOneMinUnits').textContent = currentTempUnit;
+        document.getElementById('dayOneMaxUnits').textContent = currentTempUnit;
+        document.getElementById('dayOneWindUnits').textContent = currentSpeedUnit;
+        document.getElementById('dayTwoTemperature').textContent = Math.round((dayTwoTempReading * (9/5)) + 32);
+        document.getElementById('dayTwoMin').textContent = Math.round((dayTwoMinReading * (9/5)) + 32);
+        document.getElementById('dayTwoMax').textContent = Math.round((dayTwoMaxReading * (9/5)) + 32);
+        document.getElementById('dayTwoWind').textContent = Math.round(dayTwoWindReading * 2.237);
+        document.getElementById('dayTwoUnits').textContent = currentTempUnit;
+        document.getElementById('dayTwoMinUnits').textContent = currentTempUnit;
+        document.getElementById('dayTwoMaxUnits').textContent = currentTempUnit;
+        document.getElementById('dayTwoWindUnits').textContent = currentSpeedUnit;
+        document.getElementById('dayThreeTemperature').textContent = Math.round((dayThreeTempReading * (9/5)) + 32);
+        document.getElementById('dayThreeMin').textContent = Math.round((dayThreeMinReading * (9/5)) + 32);
+        document.getElementById('dayThreeMax').textContent = Math.round((dayThreeMaxReading * (9/5)) + 32);
+        document.getElementById('dayThreeWind').textContent = Math.round(dayThreeWindReading * 2.237);
+        document.getElementById('dayThreeUnits').textContent = currentTempUnit;
+        document.getElementById('dayThreeMinUnits').textContent = currentTempUnit;
+        document.getElementById('dayThreeMaxUnits').textContent = currentTempUnit;
+        document.getElementById('dayThreeWindUnits').textContent = currentSpeedUnit;
+        document.getElementById('dayFourTemperature').textContent = Math.round((dayFourTempReading * (9/5)) + 32);
+        document.getElementById('dayFourMin').textContent = Math.round((dayFourMinReading * (9/5)) + 32);
+        document.getElementById('dayFourMax').textContent = Math.round((dayFourMaxReading * (9/5)) + 32);
+        document.getElementById('dayFourWind').textContent = Math.round(dayFourWindReading * 2.237);
+        document.getElementById('dayFourUnits').textContent = currentTempUnit;
+        document.getElementById('dayFourMinUnits').textContent = currentTempUnit;
+        document.getElementById('dayFourMaxUnits').textContent = currentTempUnit;
+        document.getElementById('dayFourWindUnits').textContent = currentSpeedUnit;
+        document.getElementById('dayFiveTemperature').textContent = Math.round((dayFiveTempReading * (9/5)) + 32);
+        document.getElementById('dayFiveMin').textContent = Math.round((dayFiveMinReading * (9/5)) + 32);
+        document.getElementById('dayFiveMax').textContent = Math.round((dayFiveMaxReading * (9/5)) + 32);
+        document.getElementById('dayFiveWind').textContent = Math.round(dayFiveWindReading * 2.237);
+        document.getElementById('dayFiveUnits').textContent = currentTempUnit;
+        document.getElementById('dayFiveMinUnits').textContent = currentTempUnit;
+        document.getElementById('dayFiveMaxUnits').textContent = currentTempUnit;
+        document.getElementById('dayFiveWindUnits').textContent = currentSpeedUnit;
+
     } else {
         btn.innerHTML = 'Metric'; // Converts button label back to 'Metric'
         currentSpeedUnit = "mps"; // Changes variable statuses, used in global scope for async function
@@ -96,6 +156,46 @@ function toggleButton() {
         document.getElementById('topBarUnitMia').textContent = currentTempUnit;
         document.getElementById('dallasTemperature').textContent = Math.round((dallasTemp - 32) * (5/9));
         document.getElementById('topBarUnitDal').textContent = currentTempUnit;
+        document.getElementById('dayOneTemperature').textContent = Math.round((dayOneTempReading - 32) * (5/9));
+        document.getElementById('dayOneMin').textContent = Math.round((dayOneMinReading - 32) * (5/9));
+        document.getElementById('dayOneMax').textContent = Math.round((dayOneMaxReading - 32) * (5/9));
+        document.getElementById('dayOneWind').textContent = Math.round(dayOneWindReading / 2.237);
+        document.getElementById('dayOneUnits').textContent = currentTempUnit;
+        document.getElementById('dayOneMinUnits').textContent = currentTempUnit;
+        document.getElementById('dayOneMaxUnits').textContent = currentTempUnit;
+        document.getElementById('dayOneWindUnits').textContent = currentSpeedUnit;
+        document.getElementById('dayTwoTemperature').textContent = Math.round((dayTwoTempReading - 32) * (5/9));
+        document.getElementById('dayTwoMin').textContent = Math.round((dayTwoMinReading - 32) * (5/9));
+        document.getElementById('dayTwoMax').textContent = Math.round((dayTwoMaxReading - 32) * (5/9));
+        document.getElementById('dayTwoWind').textContent = Math.round(dayTwoWindReading / 2.237);
+        document.getElementById('dayTwoUnits').textContent = currentTempUnit;
+        document.getElementById('dayTwoMinUnits').textContent = currentTempUnit;
+        document.getElementById('dayTwoMaxUnits').textContent = currentTempUnit;
+        document.getElementById('dayTwoWindUnits').textContent = currentSpeedUnit;
+        document.getElementById('dayThreeTemperature').textContent = Math.round((dayThreeTempReading - 32) * (5/9));
+        document.getElementById('dayThreeMin').textContent = Math.round((dayThreeMinReading - 32) * (5/9));
+        document.getElementById('dayThreeMax').textContent = Math.round((dayThreeMaxReading - 32) * (5/9));
+        document.getElementById('dayThreeWind').textContent = Math.round(dayThreeWindReading / 2.237);
+        document.getElementById('dayThreeUnits').textContent = currentTempUnit;
+        document.getElementById('dayThreeMinUnits').textContent = currentTempUnit;
+        document.getElementById('dayThreeMaxUnits').textContent = currentTempUnit;
+        document.getElementById('dayThreeWindUnits').textContent = currentSpeedUnit;
+        document.getElementById('dayFourTemperature').textContent = Math.round((dayFourTempReading - 32) * (5/9));
+        document.getElementById('dayFourMin').textContent = Math.round((dayFourMinReading - 32) * (5/9));
+        document.getElementById('dayFourMax').textContent = Math.round((dayFourMaxReading - 32) * (5/9));
+        document.getElementById('dayFourWind').textContent = Math.round(dayFourWindReading / 2.237);
+        document.getElementById('dayFourUnits').textContent = currentTempUnit;
+        document.getElementById('dayFourMinUnits').textContent = currentTempUnit;
+        document.getElementById('dayFourMaxUnits').textContent = currentTempUnit;
+        document.getElementById('dayFourWindUnits').textContent = currentSpeedUnit;
+        document.getElementById('dayFiveTemperature').textContent = Math.round((dayFiveTempReading - 32) * (5/9));
+        document.getElementById('dayFiveMin').textContent = Math.round((dayFiveMinReading - 32) * (5/9));
+        document.getElementById('dayFiveMax').textContent = Math.round((dayFiveMaxReading - 32) * (5/9));
+        document.getElementById('dayFiveWind').textContent = Math.round(dayFiveWindReading / 2.237);
+        document.getElementById('dayFiveUnits').textContent = currentTempUnit;
+        document.getElementById('dayFiveMinUnits').textContent = currentTempUnit;
+        document.getElementById('dayFiveMaxUnits').textContent = currentTempUnit;
+        document.getElementById('dayFiveWindUnits').textContent = currentSpeedUnit;
     }
 }
 
@@ -350,9 +450,7 @@ async function getForecast() {
     document.getElementById('dayOneWind').textContent = Math.round(data.daily[1].wind_speed);
     document.getElementById('dayOneHumidity').textContent = Math.round(data.daily[1].humidity);
     document.getElementById('dayOnePressure').textContent = Math.round(data.daily[1].pressure);
-    console.log(data.daily[1].wind_speed);
-    console.log(data.daily[1].humidity);
-    console.log(data.daily[1].pressure);
+    document.getElementById('dayOneWindUnits').textContent = currentSpeedUnit;
 
     document.getElementById('dayTwoForeDate').textContent = dayTwoMonth.toString() + "/" + dayTwoDay.toString();
     document.getElementById('dayTwoTemperature').textContent = Math.round(data.daily[2].temp.day);
@@ -364,6 +462,7 @@ async function getForecast() {
     document.getElementById('dayTwoWind').textContent = Math.round(data.daily[2].wind_speed);
     document.getElementById('dayTwoHumidity').textContent = Math.round(data.daily[2].humidity);
     document.getElementById('dayTwoPressure').textContent = Math.round(data.daily[2].pressure);
+    document.getElementById('dayTwoWindUnits').textContent = currentSpeedUnit;
 
     document.getElementById('dayThreeForeDate').textContent = dayThreeMonth.toString() + "/" + dayThreeDay.toString();
     document.getElementById('dayThreeTemperature').textContent = Math.round(data.daily[3].temp.day);
@@ -375,6 +474,7 @@ async function getForecast() {
     document.getElementById('dayThreeWind').textContent = Math.round(data.daily[3].wind_speed);
     document.getElementById('dayThreeHumidity').textContent = Math.round(data.daily[3].humidity);
     document.getElementById('dayThreePressure').textContent = Math.round(data.daily[3].pressure);
+    document.getElementById('dayThreeWindUnits').textContent = currentSpeedUnit;
 
     document.getElementById('dayFourForeDate').textContent = dayFourMonth.toString() + "/" + dayFourDay.toString();
     document.getElementById('dayFourTemperature').textContent = Math.round(data.daily[4].temp.day);
@@ -386,6 +486,7 @@ async function getForecast() {
     document.getElementById('dayFourWind').textContent = Math.round(data.daily[4].wind_speed);
     document.getElementById('dayFourHumidity').textContent = Math.round(data.daily[4].humidity);
     document.getElementById('dayFourPressure').textContent = Math.round(data.daily[4].pressure);
+    document.getElementById('dayFourWindUnits').textContent = currentSpeedUnit;
 
     document.getElementById('dayFiveForeDate').textContent = dayFiveMonth.toString() + "/" + dayFiveDay.toString();
     document.getElementById('dayFiveTemperature').textContent = Math.round(data.daily[5].temp.day);
@@ -397,6 +498,7 @@ async function getForecast() {
     document.getElementById('dayFiveWind').textContent = Math.round(data.daily[5].wind_speed);
     document.getElementById('dayFiveHumidity').textContent = Math.round(data.daily[5].humidity);
     document.getElementById('dayFivePressure').textContent = Math.round(data.daily[5].pressure);
+    document.getElementById('dayFiveWindUnits').textContent = currentSpeedUnit;
 
     console.log(data);
 }
