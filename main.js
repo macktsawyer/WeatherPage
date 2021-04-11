@@ -6,7 +6,6 @@
 // Smaller resolution messes with layout and main content
 
 // To Do
-// Prettify called current weather timestamp
 // Add weather response features (sunshine and light background for clear weather, etc)
 // Open Street Map for Weather Map?
 // Convert meters to kilometers
