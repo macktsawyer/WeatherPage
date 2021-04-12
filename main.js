@@ -8,7 +8,6 @@
 // Add weather response features (sunshine and light background for clear weather, etc)
 // Open Street Map for Weather Map?
 // Convert meters to kilometers
-// Top bar needs moon feature
 // Add more comments for easier reading
 
 let input = document.getElementById("userLocationInput");
@@ -525,6 +524,9 @@ async function newYorkWeatherGrab() { // New York Top Bar API Weather Call
     let cloudAmount = data.clouds.all;
     let newYorkCloudCondition = (cloudAmount > 50) ? "cloudy" : "sunny";
     let newYorkSpecialWeather = data.weather[0].main;
+    let newYorkUnix = data.dt;
+    let newYorkSunRise = data.sys.sunrise;
+    let newYorkSunSet = data.sys.sunset;
 
     if (newYorkSpecialWeather === "Rain") {
         newYorkCloudCondition = "Rain";
@@ -548,6 +550,30 @@ async function newYorkWeatherGrab() { // New York Top Bar API Weather Call
         document.getElementById('newYorkWeatherPic').setAttribute("src", "Storming.gif");
     }
     
+    if (newYorkUnix > newYorkSunRise && newYorkUnix < newYorkSunSet) { 
+        if (newYorkCloudCondition === "sunny") {
+            newYorkCloudCondition = "sunny";
+        } else {
+            newYorkCloudCondition = newYorkCloudCondition;
+        }
+    } else if (newYorkUnix > newYorkSunRise && newYorkUnix > newYorkSunSet) {
+        if (newYorkCloudCondition === "sunny") {
+            newYorkCloudCondition = "moon";
+        } else {
+            newYorkCloudCondition = newYorkCloudCondition;
+        }
+    } else if (newYorkUnix < newYorkSunRise && newYorkUnix < newYorkSunSet) {
+        if (newYorkCloudCondition === "sunny") {
+            newYorkCloudCondition = "moon";
+        } else {
+            newYorkCloudCondition = newYorkCloudCondition;
+        }
+    }
+
+    if (newYorkCloudCondition === "moon") { // If currentCondition is moon, change weather emblem
+        document.getElementById('newYorkWeatherPic').setAttribute("src", "moon.gif");
+    }
+
     document.getElementById('newYorkTemperature').textContent = locationNYTemperature;
     document.getElementById('topBarUnitNY').textContent = currentTempUnit;
 }
@@ -562,6 +588,9 @@ async function losAngelesWeatherGrab() { // LA Top Bar API Weather Call
     let cloudAmount = data.clouds.all;
     let losAngelesCloudCondition = (cloudAmount > 50) ? "cloudy" : "sunny";
     let losAngelesSpecialWeather = data.weather[0].main;
+    let losAngelesUnix = data.dt;
+    let losAngelesSunRise = data.sys.sunrise;
+    let losAngelesSunSet = data.sys.sunset;
     
     if (losAngelesSpecialWeather === "Rain") {
         losAngelesCloudCondition = "Rain";
@@ -584,7 +613,31 @@ async function losAngelesWeatherGrab() { // LA Top Bar API Weather Call
     } else if (losAngelesCloudCondition === "Thunderstorm"){
         document.getElementById('losAngelesWeatherPic').setAttribute("src", "Storming.gif");
     }
+
+    if (losAngelesUnix > losAngelesSunRise && losAngelesUnix < losAngelesSunSet) { 
+        if (losAngelesCloudCondition === "sunny") {
+            losAngelesCloudCondition = "sunny";
+        } else {
+            losAngelesCloudCondition = losAngelesCloudCondition;
+        }
+    } else if (losAngelesUnix > losAngelesSunRise && losAngelesUnix > losAngelesSunSet) {
+        if (losAngelesCloudCondition === "sunny") {
+            losAngelesCloudCondition = "moon";
+        } else {
+            losAngelesCloudCondition = losAngelesCloudCondition;
+        }
+    } else if (losAngelesUnix < losAngelesSunRise && losAngelesUnix < losAngelesSunSet) {
+        if (losAngelesCloudCondition === "sunny") {
+            losAngelesCloudCondition = "moon";
+        } else {
+            losAngelesCloudCondition = losAngelesCloudCondition;
+        }
+    }
     
+    if (losAngelesCloudCondition === "moon") { // If currentCondition is moon, change weather emblem
+        document.getElementById('losAngelesWeatherPic').setAttribute("src", "moon.gif");
+    }
+
     document.getElementById('losAngelesTemperature').textContent = locationLATemperature;
     document.getElementById('topBarUnitLA').textContent = currentTempUnit;
 }
@@ -599,6 +652,9 @@ async function bostonWeatherGrab() { // Boston Top Bar Weather Call
     let cloudAmount = data.clouds.all;
     let bostonCloudCondition = (cloudAmount > 50) ? "cloudy" : "sunny";
     let bostonSpecialWeather = data.weather[0].main;
+    let bostonUnix = data.dt;
+    let bostonSunRise = data.sys.sunrise;
+    let bostonSunSet = data.sys.sunset;
 
     if (bostonSpecialWeather === "Rain") {
         bostonCloudCondition = "Rain";
@@ -621,7 +677,31 @@ async function bostonWeatherGrab() { // Boston Top Bar Weather Call
     } else if (bostonCloudCondition === "Thunderstorm"){
         document.getElementById('bostonWeatherPic').setAttribute("src", "Storming.gif");
     }
+
+    if (bostonUnix > bostonSunRise && bostonUnix < bostonSunSet) { 
+        if (bostonCloudCondition === "sunny") {
+            bostonCloudCondition = "sunny";
+        } else {
+            bostonCloudCondition = bostonCloudCondition;
+        }
+    } else if (bostonUnix > bostonSunRise && bostonUnix > bostonSunSet) {
+        if (bostonCloudCondition === "sunny") {
+            bostonCloudCondition = "moon";
+        } else {
+            bostonCloudCondition = bostonCloudCondition;
+        }
+    } else if (bostonUnix < bostonSunRise && bostonUnix < bostonSunSet) {
+        if (bostonCloudCondition === "sunny") {
+            bostonCloudCondition = "moon";
+        } else {
+            bostonCloudCondition = bostonCloudCondition;
+        }
+    }
     
+    if (bostonCloudCondition === "moon") { // If currentCondition is moon, change weather emblem
+        document.getElementById('bostonWeatherPic').setAttribute("src", "moon.gif");
+    }
+
     document.getElementById('bostonTemperature').textContent = locationBosTemperature;
     document.getElementById('topBarUnitBos').textContent = currentTempUnit;
 }
@@ -636,6 +716,9 @@ async function miamiWeatherGrab() { // Miami Top Bar API Call
     let cloudAmount = data.clouds.all;
     let miamiCloudCondition = (cloudAmount > 50) ? "cloudy" : "sunny";
     let miamiSpecialWeather = data.weather[0].main;
+    let miamiUnix = data.dt;
+    let miamiSunRise = data.sys.sunrise;
+    let miamiSunSet = data.sys.sunset;
 
     if (miamiSpecialWeather === "Rain") {
         miamiCloudCondition = "Rain";
@@ -659,6 +742,30 @@ async function miamiWeatherGrab() { // Miami Top Bar API Call
         document.getElementById('miamiWeatherPic').setAttribute("src", "Storming.gif");
     }
 
+    if (miamiUnix > miamiSunRise && miamiUnix < miamiSunSet) { 
+        if (miamiCloudCondition === "sunny") {
+            miamiCloudCondition = "sunny";
+        } else {
+            miamiCloudCondition = miamiCloudCondition;
+        }
+    } else if (miamiUnix > miamiSunRise && miamiUnix > miamiSunSet) {
+        if (miamiCloudCondition === "sunny") {
+            miamiCloudCondition = "moon";
+        } else {
+            miamiCloudCondition = miamiCloudCondition;
+        }
+    } else if (miamiUnix < miamiSunRise && miamiUnix < miamiSunSet) {
+        if (miamiCloudCondition === "sunny") {
+            miamiCloudCondition = "moon";
+        } else {
+            miamiCloudCondition = miamiCloudCondition;
+        }
+    }
+    
+    if (miamiCloudCondition === "moon") { // If currentCondition is moon, change weather emblem
+        document.getElementById('miamiWeatherPic').setAttribute("src", "moon.gif");
+    }
+
     document.getElementById('miamiTemperature').textContent = locationMiaTemperature;
     document.getElementById('topBarUnitMia').textContent = currentTempUnit;
 }
@@ -673,6 +780,9 @@ async function dallasWeatherGrab() { // Dallas Top Bar API Call
     let cloudAmount = data.clouds.all;
     let dallasCloudCondition = (cloudAmount > 50) ? "cloudy" : "sunny";
     let dallasSpecialWeather = data.weather[0].main;
+    let dallasUnix = data.dt;
+    let dallasSunRise = data.sys.sunrise;
+    let dallasSunSet = data.sys.sunset;
 
     if (dallasSpecialWeather === "Rain") {
         dallasCloudCondition = "Rain";
@@ -694,6 +804,30 @@ async function dallasWeatherGrab() { // Dallas Top Bar API Call
         document.getElementById('dallasWeatherPic').setAttribute("src", "Snowing.gif");
     } else if (dallasCloudCondition === "Thunderstorm"){
         document.getElementById('dallasWeatherPic').setAttribute("src", "Storming.gif");
+    }
+
+    if (dallasUnix > dallasSunRise && dallasUnix < dallasSunSet) { 
+        if (dallasCloudCondition === "sunny") {
+            dallasCloudCondition = "sunny";
+        } else {
+            dallasCloudCondition = dallasCloudCondition;
+        }
+    } else if (dallasUnix > dallasSunRise && dallasUnix > dallasSunSet) {
+        if (dallasCloudCondition === "sunny") {
+            dallasCloudCondition = "moon";
+        } else {
+            dallasCloudCondition = dallasCloudCondition;
+        }
+    } else if (dallasUnix < dallasSunRise && dallasUnix < dallasSunSet) {
+        if (dallasCloudCondition === "sunny") {
+            dallasCloudCondition = "moon";
+        } else {
+            dallasCloudCondition = dallasCloudCondition;
+        }
+    }
+    
+    if (dallasCloudCondition === "moon") { // If currentCondition is moon, change weather emblem
+        document.getElementById('dallasWeatherPic').setAttribute("src", "moon.gif");
     }
 
     document.getElementById('dallasTemperature').textContent = locationDalTemperature;
