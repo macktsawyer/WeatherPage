@@ -1,7 +1,6 @@
 "use strict";
 
 // Known Issues
-// New location while on 'imperial' causes info reporting error
 // Background limited with console up and scrolling down
 // Smaller resolution messes with layout and main content
 
@@ -502,20 +501,6 @@ async function getForecast() {
     console.log(data);
 }
 
-document.getElementById('userLocationButton').addEventListener('click', function getNewLocation() { 
-    let newValue = document.getElementById('userLocationInput').value;
-    cityName = newValue;
-    console.log(cityName); 
-    getWeather(); // Allows the button to call for a new location and info from API
-});
-
-input.addEventListener('keyup', function pushEnter(event) {   // Enables 'Enter' key to trigger input to be entered from input field 
-    if(event.keyCode === 13){                                 // 13 Key is Enter, when key up, will trigger 'click' event on button
-        event.preventDefault();
-        document.getElementById('userLocationButton').click();
-    }
-});
-
 function cloudCheck() { // Checks for cloudy vs clear weather
     if (currentCondition === "cloudy") {
         document.getElementById('weatherPic').setAttribute("src", "Cloudy.gif"); 
@@ -716,3 +701,21 @@ async function dallasWeatherGrab() { // Dallas Top Bar API Call
 }
 
 dallasWeatherGrab();
+
+document.getElementById('userLocationButton').addEventListener('click', function getNewLocation() { 
+    let newValue = document.getElementById('userLocationInput').value;
+    let toggleButtonVal = document.getElementById('unitButton').innerHTML;
+    cityName = newValue;
+    console.log(cityName); 
+    if (toggleButtonVal === 'Imperial') {                 // Mimic toggle button if 'imperial'
+        document.getElementById('unitButton').click();
+    }
+    getWeather(); // Allows the button to call for a new location and info from APIs
+});
+
+input.addEventListener('keyup', function pushEnter(event) {   // Enables 'Enter' key to trigger input to be entered from input field 
+    if(event.keyCode === 13){                                 // 13 Key is Enter, when key up, will trigger 'click' event on button
+        event.preventDefault();
+        document.getElementById('userLocationButton').click();
+    }
+});
