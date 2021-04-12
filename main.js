@@ -8,7 +8,6 @@
 // Add weather response features (sunshine and light background for clear weather, etc)
 // Open Street Map for Weather Map?
 // Convert meters to kilometers
-// Add more comments for easier reading
 
 let input = document.getElementById("userLocationInput");
 let cityName = 'San Diego';
@@ -21,6 +20,8 @@ let currentCondition = "cloudy";
 let specialWeather = "Clear";
 let latitude;
 let longitude;
+
+// ----------------------------------- Toggle Button ------------------------------------------------- //
 
 function toggleButton() {
     let btn = document.getElementById('unitButton');
@@ -196,6 +197,8 @@ function toggleButton() {
     }
 }
 
+// ----------------------------------- Primary Weather API ------------------------------------------------- //
+
 async function getWeather() {
     let basic_api_URL = 'http://api.openweathermap.org/data/2.5/weather?q=' + cityName + '&units=metric&appid=278afa8fabdf943e1a3ead235406b4a5'; // Changes API call for the cityName entered
     const response = await fetch(basic_api_URL);
@@ -276,6 +279,8 @@ async function getWeather() {
     cloudCheck();
     getForecast();
 };
+
+// ----------------------------------- Forecasted Weather API ------------------------------------------------- //
 
 async function getForecast() {
     let forecastApi = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + latitude + '&lon=' + longitude + '&exclude=current,minutely,hourly&units=metric&appid=278afa8fabdf943e1a3ead235406b4a5' // Forecast API
@@ -500,6 +505,8 @@ async function getForecast() {
     console.log(data);
 }
 
+// ----------------------------------- Cloud Check & Special Weather Function ------------------------------------------------- //
+
 function cloudCheck() { // Checks for cloudy vs clear weather
     if (currentCondition === "cloudy") {
         document.getElementById('weatherPic').setAttribute("src", "Cloudy.gif"); 
@@ -515,6 +522,8 @@ function cloudCheck() { // Checks for cloudy vs clear weather
 }
 
 getWeather();
+
+// ----------------------------------- New York API ------------------------------------------------- //
 
 async function newYorkWeatherGrab() { // New York Top Bar API Weather Call
     let newYorkAPICall = 'http://api.openweathermap.org/data/2.5/weather?q=Manhattan&units=metric&appid=278afa8fabdf943e1a3ead235406b4a5';
@@ -580,6 +589,8 @@ async function newYorkWeatherGrab() { // New York Top Bar API Weather Call
 
 newYorkWeatherGrab();
 
+// ----------------------------------- Los Angeles API ------------------------------------------------- //
+
 async function losAngelesWeatherGrab() { // LA Top Bar API Weather Call
     let losAngelesAPICall = 'http://api.openweathermap.org/data/2.5/weather?q=los angeles&units=metric&appid=278afa8fabdf943e1a3ead235406b4a5';
     const response = await fetch(losAngelesAPICall);
@@ -643,6 +654,8 @@ async function losAngelesWeatherGrab() { // LA Top Bar API Weather Call
 }
 
 losAngelesWeatherGrab();
+
+// ----------------------------------- Boston API ------------------------------------------------- //
 
 async function bostonWeatherGrab() { // Boston Top Bar Weather Call
     let bostonAPICall = 'http://api.openweathermap.org/data/2.5/weather?q=boston&units=metric&appid=278afa8fabdf943e1a3ead235406b4a5';
@@ -708,6 +721,8 @@ async function bostonWeatherGrab() { // Boston Top Bar Weather Call
 
 bostonWeatherGrab();
 
+// ----------------------------------- Miami API ------------------------------------------------- //
+
 async function miamiWeatherGrab() { // Miami Top Bar API Call
     let miamiAPICall = 'http://api.openweathermap.org/data/2.5/weather?q=miami&units=metric&appid=278afa8fabdf943e1a3ead235406b4a5';
     const response = await fetch(miamiAPICall);
@@ -771,6 +786,8 @@ async function miamiWeatherGrab() { // Miami Top Bar API Call
 }
 
 miamiWeatherGrab();
+
+// ----------------------------------- Dallas API ------------------------------------------------- //
 
 async function dallasWeatherGrab() { // Dallas Top Bar API Call
     let dallasAPICall = 'http://api.openweathermap.org/data/2.5/weather?q=dallas&units=metric&appid=278afa8fabdf943e1a3ead235406b4a5';
@@ -836,16 +853,20 @@ async function dallasWeatherGrab() { // Dallas Top Bar API Call
 
 dallasWeatherGrab();
 
+// ----------------------------------- Search Location 'Go!' Button ------------------------------------------------- //
+
 document.getElementById('userLocationButton').addEventListener('click', function getNewLocation() { 
     let newValue = document.getElementById('userLocationInput').value;
     let toggleButtonVal = document.getElementById('unitButton').innerHTML;
     cityName = newValue;
     console.log(cityName); 
-    if (toggleButtonVal === 'Imperial') {                 // Mimic toggle button if 'imperial'
+    if (toggleButtonVal === 'Imperial') {                 // Mimic toggle button if 'imperial' to prevent bug
         document.getElementById('unitButton').click();
     }
     getWeather(); // Allows the button to call for a new location and info from APIs
 });
+
+// ----------------------------------- Pushing 'Enter' Functionality for 'Go!' ------------------------------------------------- //
 
 input.addEventListener('keyup', function pushEnter(event) {   // Enables 'Enter' key to trigger input to be entered from input field 
     if(event.keyCode === 13){                                 // 13 Key is Enter, when key up, will trigger 'click' event on button
