@@ -8,6 +8,7 @@
 // Add weather response features (sunshine and light background for clear weather, etc)
 // Open Street Map for Weather Map?
 // Convert meters to kilometers
+// Site name and logo
 
 let input = document.getElementById("userLocationInput");
 let cityName = 'San Diego';
