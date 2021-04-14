@@ -2,7 +2,7 @@
 
 // Known Issues
 // Background limited with console up and scrolling down
-// Smaller resolution messes with layout and main content
+// Top bar needs new size cut-off or change to style for small resolution
 
 // To Do
 // Add weather response features (sunshine and light background for clear weather, etc)

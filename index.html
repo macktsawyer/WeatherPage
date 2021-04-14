@@ -47,106 +47,110 @@
         <div align=center><span id="localTime"></span>
         </div>
     </div>
-    <div class="container-fluid" id="currentWeather">
-        <div align=center id="toggleButton">
-            <button onclick="toggleButton()" type="button" id="unitButton" class="btn btn-primary btn-lg">Metric</button>
-        </div>
-        <div align=center id="searchBar">
-            <input id="userLocationInput" type="text" placeholder="Search Location">
-            <button class="btn btn-outline-light btn-sm" id="userLocationButton">Go!</button>
-        </div>
-        <div id="weatherPicDiv" align=center><img id="weatherPic" src="Cloudy.gif" alt=""></div>
-        <div align=center ><h2><span id="city"></span></h2></div>
-        <div align=center ><p><span id="callTime"></span></p></div>
-        <h2>Temperature: <span id="temp"></span><span id="unitTemp"></span></h2>
-        <h5>Min Temp: <span id="minTemp"></span><span id="minTempUnit"></span></h5>
-        <h5>Max Temp: <span id="maxTemp"></span><span id="maxTempUnit"></span></h5>
-        <h2>Feels Like: <span id="feelslike"></span><span id="unitTempFeel"></span></h2>
-        <h2>Humidity: <span id="humidity"></span></h2>
-        <h2>Wind Speed: <span id="wind"></span><span id="unitSpeed"></span></h2>
-        <h2>Visibility: <span id="visibil"></span><span id="visibilityUnit"></span></h2>
-    </div>
-    <div class="container-fluid" id="weatherForecast">
-        <div align=center><h5>The Next Five Day Forecast</h5></div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="container" id="currentWeather"> 
+                <div align=center id="toggleButton">
+                    <button onclick="toggleButton()" type="button" id="unitButton" class="btn btn-primary btn-lg">Metric</button>
+                </div>
+                <div align=center id="searchBar">
+                    <input id="userLocationInput" type="text" placeholder="Search Location">
+                    <button class="btn btn-outline-light btn-sm" id="userLocationButton">Go!</button>
+                </div>
+                <div id="weatherPicDiv" align=center><img id="weatherPic" src="Cloudy.gif" alt=""></div>
+                <div align=center ><h2><span id="city"></span></h2></div>
+                <div align=center ><p><span id="callTime"></span></p></div>
+                <h2>Temperature: <span id="temp"></span><span id="unitTemp"></span></h2>
+                <h5>Min Temp: <span id="minTemp"></span><span id="minTempUnit"></span></h5>
+                <h5>Max Temp: <span id="maxTemp"></span><span id="maxTempUnit"></span></h5>
+                <h2>Feels Like: <span id="feelslike"></span><span id="unitTempFeel"></span></h2>
+                <h2>Humidity: <span id="humidity"></span></h2>
+                <h2>Wind Speed: <span id="wind"></span><span id="unitSpeed"></span></h2>
+                <h2>Visibility: <span id="visibil"></span><span id="visibilityUnit"></span></h2>
+            </div>
+            <div class="container" id="weatherForecast">
+                <div align=center><h5>The Next Five Day Forecast</h5></div>
 
-        <div id="dayOneTitleDiv" align=center><span id="dayOneForeDate"></span></div>
+                <div id="dayOneTitleDiv" align=center><span id="dayOneForeDate"></span></div>
 
-        <div id="dayOneFirstDiv">
-            <div id="dayOnePicDiv" align=left><img id="dayOnePic" src="Cloudy.gif" alt=""></div>
-        </div>
-        <div id="dayOneSecondDiv">
-            <div align=center>Avg. <span id="dayOneTemperature"></span><span id="dayOneUnits"></span></div>
-            <div align=center>Min. <span id="dayOneMin"></span><span id="dayOneMinUnits"></span></div>
-            <div align=center>Max. <span id="dayOneMax"></span><span id="dayOneMaxUnits"></span></div>
-        </div>
-        <div id="dayOneThirdDiv">
-            <div align=right>Wind: <span id="dayOneWind"></span><span id="dayOneWindUnits"></span></div>
-            <div align=right>Humidity: <span id="dayOneHumidity"></span>%</div>
-            <div align=right>Pressure: <span id="dayOnePressure"></span>hPa</div>
-        </div>
+                <div id="dayOneFirstDiv">
+                    <div id="dayOnePicDiv" align=left><img id="dayOnePic" src="Cloudy.gif" alt=""></div>
+                </div>
+                <div id="dayOneSecondDiv">
+                    <div align=center>Avg. <span id="dayOneTemperature"></span><span id="dayOneUnits"></span></div>
+                    <div align=center>Min. <span id="dayOneMin"></span><span id="dayOneMinUnits"></span></div>
+                    <div align=center>Max. <span id="dayOneMax"></span><span id="dayOneMaxUnits"></span></div>
+                </div>
+                <div id="dayOneThirdDiv">
+                    <div align=right>Wind: <span id="dayOneWind"></span><span id="dayOneWindUnits"></span></div>
+                    <div align=right>Humidity: <span id="dayOneHumidity"></span>%</div>
+                    <div align=right>Pressure: <span id="dayOnePressure"></span>hPa</div>
+                </div>
 
-        <div  id="dayTwoTitleDiv" align=center><span id="dayTwoForeDate"></span></div>
+                <div  id="dayTwoTitleDiv" align=center><span id="dayTwoForeDate"></span></div>
 
-        <div id="dayTwoFirstDiv">
-            <div id="dayTwoPicDiv" align=left><img id="dayTwoPic" src="Cloudy.gif" alt=""></div>
-        </div>
-        <div id="dayTwoSecondDiv">
-            <div align=center>Avg. <span id="dayTwoTemperature"></span><span id="dayTwoUnits"></span></div>
-            <div align=center>Min. <span id="dayTwoMin"></span><span id="dayTwoMinUnits"></span></div>
-            <div align=center>Max. <span id="dayTwoMax"></span><span id="dayTwoMaxUnits"></span></div>
-        </div>
-        <div id="dayTwoThirdDiv">
-            <div align=right>Wind: <span id="dayTwoWind"></span><span id="dayTwoWindUnits"></span></div>
-            <div align=right>Humidity: <span id="dayTwoHumidity"></span>%</div>
-            <div align=right>Pressure: <span id="dayTwoPressure"></span>hPa</div>
-        </div>
+                <div id="dayTwoFirstDiv">
+                    <div id="dayTwoPicDiv" align=left><img id="dayTwoPic" src="Cloudy.gif" alt=""></div>
+                </div>
+                <div id="dayTwoSecondDiv">
+                    <div align=center>Avg. <span id="dayTwoTemperature"></span><span id="dayTwoUnits"></span></div>
+                    <div align=center>Min. <span id="dayTwoMin"></span><span id="dayTwoMinUnits"></span></div>
+                    <div align=center>Max. <span id="dayTwoMax"></span><span id="dayTwoMaxUnits"></span></div>
+                </div>
+                <div id="dayTwoThirdDiv">
+                    <div align=right>Wind: <span id="dayTwoWind"></span><span id="dayTwoWindUnits"></span></div>
+                    <div align=right>Humidity: <span id="dayTwoHumidity"></span>%</div>
+                    <div align=right>Pressure: <span id="dayTwoPressure"></span>hPa</div>
+                </div>
 
-        <div id="dayThreeTitleDiv" align=center><span id="dayThreeForeDate"></span></div>
+                <div id="dayThreeTitleDiv" align=center><span id="dayThreeForeDate"></span></div>
 
-        <div id="dayThreeFirstDiv">
-            <div id="dayThreePicDiv" align=left><img id="dayThreePic" src="Cloudy.gif" alt=""></div>
-        </div>
-        <div id="dayThreeSecondDiv">
-            <div align=center>Avg. <span id="dayThreeTemperature"></span><span id="dayThreeUnits"></span></div>
-            <div align=center>Min. <span id="dayThreeMin"></span><span id="dayThreeMinUnits"></span></div>
-            <div align=center>Max. <span id="dayThreeMax"></span><span id="dayThreeMaxUnits"></span></div>
-        </div>
-        <div id="dayThreeThirdDiv">
-            <div align=right>Wind: <span id="dayThreeWind"></span><span id="dayThreeWindUnits"></span></div>
-            <div align=right>Humidity: <span id="dayThreeHumidity"></span>%</div>
-            <div align=right>Pressure: <span id="dayThreePressure"></span>hPa</div>
-        </div>
+                <div id="dayThreeFirstDiv">
+                    <div id="dayThreePicDiv" align=left><img id="dayThreePic" src="Cloudy.gif" alt=""></div>
+                </div>
+                <div id="dayThreeSecondDiv">
+                    <div align=center>Avg. <span id="dayThreeTemperature"></span><span id="dayThreeUnits"></span></div>
+                    <div align=center>Min. <span id="dayThreeMin"></span><span id="dayThreeMinUnits"></span></div>
+                    <div align=center>Max. <span id="dayThreeMax"></span><span id="dayThreeMaxUnits"></span></div>
+                </div>
+                <div id="dayThreeThirdDiv">
+                    <div align=right>Wind: <span id="dayThreeWind"></span><span id="dayThreeWindUnits"></span></div>
+                    <div align=right>Humidity: <span id="dayThreeHumidity"></span>%</div>
+                    <div align=right>Pressure: <span id="dayThreePressure"></span>hPa</div>
+                </div>
 
-        <div id="dayFourTitleDiv" align=center><span id="dayFourForeDate"></span></div>
+                <div id="dayFourTitleDiv" align=center><span id="dayFourForeDate"></span></div>
 
-        <div id="dayFourFirstDiv">
-            <div id="dayFourPicDiv" align=left><img id="dayFourPic" src="Cloudy.gif" alt=""></div>
-        </div>
-        <div id="dayFourSecondDiv">
-            <div align=center>Avg. <span id="dayFourTemperature"></span><span id="dayFourUnits"></span></div>
-            <div align=center>Min. <span id="dayFourMin"></span><span id="dayFourMinUnits"></span></div>
-            <div align=center>Max. <span id="dayFourMax"></span><span id="dayFourMaxUnits"></span></div>
-        </div>
-        <div id="dayFourThirdDiv">
-            <div align=right>Wind: <span id="dayFourWind"></span><span id="dayFourWindUnits"></span></div>
-            <div align=right>Humidity: <span id="dayFourHumidity"></span>%</div>
-            <div align=right>Pressure: <span id="dayFourPressure"></span>hPa</div>
-        </div>
+                <div id="dayFourFirstDiv">
+                    <div id="dayFourPicDiv" align=left><img id="dayFourPic" src="Cloudy.gif" alt=""></div>
+                </div>
+                <div id="dayFourSecondDiv">
+                    <div align=center>Avg. <span id="dayFourTemperature"></span><span id="dayFourUnits"></span></div>
+                    <div align=center>Min. <span id="dayFourMin"></span><span id="dayFourMinUnits"></span></div>
+                    <div align=center>Max. <span id="dayFourMax"></span><span id="dayFourMaxUnits"></span></div>
+                </div>
+                <div id="dayFourThirdDiv">
+                    <div align=right>Wind: <span id="dayFourWind"></span><span id="dayFourWindUnits"></span></div>
+                    <div align=right>Humidity: <span id="dayFourHumidity"></span>%</div>
+                    <div align=right>Pressure: <span id="dayFourPressure"></span>hPa</div>
+                </div>
 
-        <div id="dayFiveTitleDiv" align=center><span id="dayFiveForeDate"></span></div>
+                <div id="dayFiveTitleDiv" align=center><span id="dayFiveForeDate"></span></div>
 
-        <div id="dayFiveFirstDiv">
-            <div id="dayFivePicDiv" align=left><img id="dayFivePic" src="Cloudy.gif" alt=""></div>
-        </div>
-        <div id="dayFiveSecondDiv">
-            <div align=center>Avg. <span id="dayFiveTemperature"></span><span id="dayFiveUnits"></span></div>
-            <div align=center>Min. <span id="dayFiveMin"></span><span id="dayFiveMinUnits"></span></div>
-            <div align=center>Max. <span id="dayFiveMax"></span><span id="dayFiveMaxUnits"></span></div>
-        </div>
-        <div id="dayFiveThirdDiv">
-            <div align=right>Wind: <span id="dayFiveWind"></span><span id="dayFiveWindUnits"></span></div>
-            <div align=right>Humidity: <span id="dayFiveHumidity"></span>%</div>
-            <div align=right>Pressure: <span id="dayFivePressure"></span>hPa</div>
+                <div id="dayFiveFirstDiv">
+                    <div id="dayFivePicDiv" align=left><img id="dayFivePic" src="Cloudy.gif" alt=""></div>
+                </div>
+                <div id="dayFiveSecondDiv">
+                    <div align=center>Avg. <span id="dayFiveTemperature"></span><span id="dayFiveUnits"></span></div>
+                    <div align=center>Min. <span id="dayFiveMin"></span><span id="dayFiveMinUnits"></span></div>
+                    <div align=center>Max. <span id="dayFiveMax"></span><span id="dayFiveMaxUnits"></span></div>
+                </div>
+                <div id="dayFiveThirdDiv">
+                    <div align=right>Wind: <span id="dayFiveWind"></span><span id="dayFiveWindUnits"></span></div>
+                    <div align=right>Humidity: <span id="dayFiveHumidity"></span>%</div>
+                    <div align=right>Pressure: <span id="dayFivePressure"></span>hPa</div>
+                </div>
+            </div>
         </div>
     </div>
 </body>

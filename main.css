@@ -106,9 +106,6 @@ body {
 }
 
 #currentWeather {
-    position: relative;
-    float: left;
-    left: 450px;
     height: 700px;
     width: 460px;
     background-color: rgb(29, 66, 109);
@@ -130,9 +127,6 @@ body {
 }
 
 #weatherForecast {
-    position: relative;
-    float: right;
-    right: 460px;
     height: 700px;
     width: 460px;
     background-color: rgb(29, 66, 109);
