@@ -324,6 +324,14 @@ body {
     position: relative;
 }
 
+@media only screen and (max-width: 1400px) {
+
+    [id*="topBar"] {
+        display: none;
+    }
+
+}
+
 @media only screen and (max-width: 768px) {
     body {
         margin: 0px !important;
@@ -331,6 +339,10 @@ body {
         overflow-y: hidden;
     }
     
+    [id*="topBar"] {
+        display: none;
+    }
+
     [id*="timeBox"] {
         display: none;
     }
@@ -347,7 +359,4 @@ body {
         display: none;
     }
     
-    [id*="topBar"] {
-        display: none;
-    }
 }

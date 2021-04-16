@@ -9,6 +9,7 @@
 // Open Street Map for Weather Map?
 // Convert meters to kilometers
 // Site name and logo
+// Work On Mobile Responsiveness More
 
 let input = document.getElementById("userLocationInput");
 let cityName = 'San Diego';
