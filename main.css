@@ -105,6 +105,10 @@ body {
     width: 50px;
 }
 
+#timeBoxMobile {
+    display: none;
+}
+
 #currentWeather {
     height: 700px;
     width: 460px;
@@ -345,6 +349,10 @@ body {
 
     [id*="timeBox"] {
         display: none;
+    }
+
+    [id*="timeBoxMobile"] {
+        display: inline !important;
     }
 
     [id*="currentWeather"] {

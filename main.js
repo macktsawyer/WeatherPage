@@ -261,9 +261,10 @@ async function getWeather() {
         document.getElementById('weatherPic').setAttribute("src", "moon.gif");
     }
 
-    document.getElementById('localTime').textContent = localTime;
+    document.getElementById('localTime').textContent = localTime; // Local Time
+    document.getElementById('localTimeMobile').textContent = localTime; // Mobile equivelent
     document.getElementById('city').textContent = location;
-    document.getElementById('callTime').textContent = weatherCallRevised; // Timestamp
+    document.getElementById('callTime').textContent = weatherCallRevised; // Timestamp for weather's location
     document.getElementById('temp').textContent = temperature;
     document.getElementById('minTemp').textContent = minimumTemp;
     document.getElementById('maxTemp').textContent = maximumTemp;
