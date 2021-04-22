@@ -1,16 +1,5 @@
 "use strict";
 
-// Known Issues
-// Background limited with console up and scrolling down
-// Top bar needs new size cut-off or change to style for small resolution
-
-// To Do
-// Add weather response features (sunshine and light background for clear weather, etc)
-// Open Street Map for Weather Map?
-// Convert meters to kilometers
-// Site name and logo
-// Work On Mobile Responsiveness More
-
 let input = document.getElementById("userLocationInput");
 let cityName = 'San Diego';
 let currentTempUnit = "°C";
@@ -877,3 +866,14 @@ input.addEventListener('keyup', function pushEnter(event) {   // Enables 'Enter'
         document.getElementById('userLocationButton').click();
     }
 });
+
+// Known Issues
+// Background limited with console up and scrolling down
+// Top bar needs new size cut-off or change to style for small resolution
+
+// To Do
+// Add weather response features (sunshine and light background for clear weather, etc)
+// Open Street Map for Weather Map?
+// Convert meters to kilometers
+// Site name and logo
+// Work On Mobile Responsiveness More
