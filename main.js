@@ -191,7 +191,7 @@ function toggleButton() {
 // ----------------------------------- Primary Weather API ------------------------------------------------- //
 
 async function getWeather() {
-    let basic_api_URL = 'http://api.openweathermap.org/data/2.5/weather?q=' + cityName + '&units=metric&appid=278afa8fabdf943e1a3ead235406b4a5'; // Changes API call for the cityName entered
+    let basic_api_URL = 'https://api.openweathermap.org/data/2.5/weather?q=' + cityName + '&units=metric&appid=278afa8fabdf943e1a3ead235406b4a5'; // Changes API call for the cityName entered
     const response = await fetch(basic_api_URL);
     const data = await response.json();
     console.log(data);
