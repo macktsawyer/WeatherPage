@@ -518,7 +518,7 @@ getWeather();
 // ----------------------------------- New York API ------------------------------------------------- //
 
 async function newYorkWeatherGrab() { // New York Top Bar API Weather Call
-    let newYorkAPICall = 'http://api.openweathermap.org/data/2.5/weather?q=Manhattan&units=metric&appid=278afa8fabdf943e1a3ead235406b4a5';
+    let newYorkAPICall = 'https://api.openweathermap.org/data/2.5/weather?q=Manhattan&units=metric&appid=278afa8fabdf943e1a3ead235406b4a5';
     const response = await fetch(newYorkAPICall);
     const data = await response.json();
     let locationNYTemperature = Math.round(data.main.temp);
@@ -584,7 +584,7 @@ newYorkWeatherGrab();
 // ----------------------------------- Los Angeles API ------------------------------------------------- //
 
 async function losAngelesWeatherGrab() { // LA Top Bar API Weather Call
-    let losAngelesAPICall = 'http://api.openweathermap.org/data/2.5/weather?q=los angeles&units=metric&appid=278afa8fabdf943e1a3ead235406b4a5';
+    let losAngelesAPICall = 'https://api.openweathermap.org/data/2.5/weather?q=los angeles&units=metric&appid=278afa8fabdf943e1a3ead235406b4a5';
     const response = await fetch(losAngelesAPICall);
     const data = await response.json();
     let locationLATemperature = Math.round(data.main.temp);
@@ -650,7 +650,7 @@ losAngelesWeatherGrab();
 // ----------------------------------- Boston API ------------------------------------------------- //
 
 async function bostonWeatherGrab() { // Boston Top Bar Weather Call
-    let bostonAPICall = 'http://api.openweathermap.org/data/2.5/weather?q=boston&units=metric&appid=278afa8fabdf943e1a3ead235406b4a5';
+    let bostonAPICall = 'https://api.openweathermap.org/data/2.5/weather?q=boston&units=metric&appid=278afa8fabdf943e1a3ead235406b4a5';
     const response = await fetch(bostonAPICall);
     const data = await response.json();
     let locationBosTemperature = Math.round(data.main.temp);
@@ -716,7 +716,7 @@ bostonWeatherGrab();
 // ----------------------------------- Miami API ------------------------------------------------- //
 
 async function miamiWeatherGrab() { // Miami Top Bar API Call
-    let miamiAPICall = 'http://api.openweathermap.org/data/2.5/weather?q=miami&units=metric&appid=278afa8fabdf943e1a3ead235406b4a5';
+    let miamiAPICall = 'https://api.openweathermap.org/data/2.5/weather?q=miami&units=metric&appid=278afa8fabdf943e1a3ead235406b4a5';
     const response = await fetch(miamiAPICall);
     const data = await response.json();
     let locationMiaTemperature = Math.round(data.main.temp);
@@ -782,7 +782,7 @@ miamiWeatherGrab();
 // ----------------------------------- Dallas API ------------------------------------------------- //
 
 async function dallasWeatherGrab() { // Dallas Top Bar API Call
-    let dallasAPICall = 'http://api.openweathermap.org/data/2.5/weather?q=dallas&units=metric&appid=278afa8fabdf943e1a3ead235406b4a5';
+    let dallasAPICall = 'https://api.openweathermap.org/data/2.5/weather?q=dallas&units=metric&appid=278afa8fabdf943e1a3ead235406b4a5';
     const response = await fetch(dallasAPICall);
     const data = await response.json();
     let locationDalTemperature = Math.round(data.main.temp);
