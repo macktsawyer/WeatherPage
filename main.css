@@ -328,6 +328,8 @@ body {
     position: relative;
 }
 
+/*               Mobile Responsive Code                      */
+
 @media only screen and (max-width: 1400px) {
 
     [id*="topBar"] {
@@ -399,7 +401,41 @@ body {
     }
 
     [id*"weatherForecast"] {
-        display: none;
+        position: fixed;
+        display: auto;
     }
     
+}
+
+@media only screen and (max-width: 450px) {
+
+    #dayFiveTitleDiv {
+        position: fixed;
+        margin-top: 80px;
+    }
+    
+    #dayFiveForeDate {
+        font-size: 25px;
+    }
+    
+    #dayFiveFirstDiv {
+        position: fixed;
+        width: 110px;
+    }
+    
+    #dayFiveSecondDiv {
+        position: fixed;
+        width: 100px;
+    }
+    
+    #dayFiveThirdDiv {
+        position: fixed;
+    }
+    
+    #dayFivePic {
+        height: 75px;
+        width: 75px;
+        position: fixed;
+    }
+
 }
