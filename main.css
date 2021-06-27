@@ -413,10 +413,11 @@ body {
         position: relative;
         float: none;
         margin-top: 80px;
+        font-size: 80%;
     }
     
     #dayOneForeDate {
-        font-size: 25px;
+        font-size: 20px;
     }
     
     #dayOneFirstDiv {
@@ -450,7 +451,7 @@ body {
     }
     
     #dayTwoForeDate {
-        font-size: 25px;
+        font-size: 20px;
     }
     
     #dayTwoFirstDiv {
@@ -484,7 +485,7 @@ body {
     }
     
     #dayThreeForeDate {
-        font-size: 25px;
+        font-size: 20px;
     }
     
     #dayThreeFirstDiv {
@@ -518,7 +519,7 @@ body {
     }
     
     #dayFourForeDate {
-        font-size: 25px;
+        font-size: 20px;
     }
     
     #dayFourFirstDiv {
@@ -552,7 +553,7 @@ body {
     }
     
     #dayFiveForeDate {
-        font-size: 25px;
+        font-size: 20px;
     }
     
     #dayFiveFirstDiv {
