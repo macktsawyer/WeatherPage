@@ -409,8 +409,145 @@ body {
 
 @media only screen and (max-width: 450px) {
 
+    #dayOneTitleDiv {
+        position: relative;
+        float: none;
+        margin-top: 80px;
+    }
+    
+    #dayOneForeDate {
+        font-size: 25px;
+    }
+    
+    #dayOneFirstDiv {
+        position: relative;
+        float: none;
+        width: 110px;
+    }
+    
+    #dayOneSecondDiv {
+        position: relative;
+        float: none;
+        width: 100px;
+    }
+    
+    #dayOneThirdDiv {
+        position: relative;
+        float: none;
+    }
+    
+    #dayOnePic {
+        height: 75px;
+        width: 75px;
+        position: relative;
+        float: none;
+    }
+
+    #dayTwoTitleDiv {
+        position: relative;
+        float: none;
+        margin-top: 80px;
+    }
+    
+    #dayTwoForeDate {
+        font-size: 25px;
+    }
+    
+    #dayTwoFirstDiv {
+        position: relative;
+        float: none;
+        width: 110px;
+    }
+    
+    #dayTwoSecondDiv {
+        position: relative;
+        float: none;
+        width: 100px;
+    }
+    
+    #dayTwoThirdDiv {
+        position: relative;
+        float: none;
+    }
+    
+    #dayTwoPic {
+        height: 75px;
+        width: 75px;
+        position: relative;
+        float: none;
+    }
+
+    #dayThreeTitleDiv {
+        position: relative;
+        float: none;
+        margin-top: 80px;
+    }
+    
+    #dayThreeForeDate {
+        font-size: 25px;
+    }
+    
+    #dayThreeFirstDiv {
+        position: relative;
+        float: none;
+        width: 110px;
+    }
+    
+    #dayThreeSecondDiv {
+        position: relative;
+        float: none;
+        width: 100px;
+    }
+    
+    #dayThreeThirdDiv {
+        position: relative;
+        float: none;
+    }
+    
+    #dayThreePic {
+        height: 75px;
+        width: 75px;
+        position: relative;
+        float: none;
+    }
+
+    #dayFourTitleDiv {
+        position: relative;
+        float: none;
+        margin-top: 80px;
+    }
+    
+    #dayFourForeDate {
+        font-size: 25px;
+    }
+    
+    #dayFourFirstDiv {
+        position: relative;
+        float: none;
+        width: 110px;
+    }
+    
+    #dayFourSecondDiv {
+        position: relative;
+        float: none;
+        width: 100px;
+    }
+    
+    #dayFourThirdDiv {
+        position: relative;
+        float: none;
+    }
+    
+    #dayFourPic {
+        height: 75px;
+        width: 75px;
+        position: relative;
+        float: none;
+    }
+
     #dayFiveTitleDiv {
-        position: fixed;
+        position: relative;
+        float: none;
         margin-top: 80px;
     }
     
@@ -419,23 +556,27 @@ body {
     }
     
     #dayFiveFirstDiv {
-        position: fixed;
+        position: relative;
+        float: none;
         width: 110px;
     }
     
     #dayFiveSecondDiv {
-        position: fixed;
+        position: relative;
+        float: none;
         width: 100px;
     }
     
     #dayFiveThirdDiv {
-        position: fixed;
+        position: relative;
+        float: none;
     }
     
     #dayFivePic {
         height: 75px;
         width: 75px;
-        position: fixed;
+        position: relative;
+        float: none;
     }
 
 }
