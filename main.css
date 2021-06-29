@@ -409,175 +409,167 @@ body {
 
 @media only screen and (max-width: 450px) {
 
+    #weatherForecast {
+        color: white;
+    }
+
     #dayOneTitleDiv {
-        position: relative;
-        float: none;
-        margin-top: 80px;
-        font-size: 80%;
+        float: center;
     }
     
     #dayOneForeDate {
-        font-size: 20px;
-    }
-    
-    #dayOneFirstDiv {
-        position: relative;
-        float: none;
-        width: 110px;
-    }
-    
-    #dayOneSecondDiv {
-        position: relative;
-        float: none;
-        width: 100px;
-    }
-    
-    #dayOneThirdDiv {
-        position: relative;
-        float: none;
+        font-size: 10px;
     }
     
     #dayOnePic {
-        height: 75px;
-        width: 75px;
-        position: relative;
-        float: none;
+        height: 50px;
+        width: 50px;
+        float: left;
     }
-
+    
+    #dayOneFirstDiv {
+        float: left;
+        width: 80px;
+    }
+    
+    #dayOneSecondDiv {
+        float: left;
+        font-size: 10px;
+        width: 80px;
+    }
+    
+    #dayOneThirdDiv {
+        float: left;
+        font-size: 10px;
+        transform: translate(10px);
+    }
+    
     #dayTwoTitleDiv {
-        position: relative;
-        float: none;
-        margin-top: 80px;
+        float: center;
     }
     
     #dayTwoForeDate {
-        font-size: 20px;
+        font-size: 10px;
+        width: 80px;
     }
     
     #dayTwoFirstDiv {
-        position: relative;
-        float: none;
-        width: 110px;
+        float: left;
+        width: 80px;
     }
     
     #dayTwoSecondDiv {
-        position: relative;
-        float: none;
-        width: 100px;
+        float: left;
+        width: 80px;
+        font-size: 10px;
     }
     
     #dayTwoThirdDiv {
-        position: relative;
-        float: none;
+        float: left;
+        font-size: 10px;
+        transform: translate(10px);
     }
     
     #dayTwoPic {
-        height: 75px;
-        width: 75px;
-        position: relative;
-        float: none;
+        height: 50px;
+        width: 50px;
+        float: left;
     }
-
+    
     #dayThreeTitleDiv {
-        position: relative;
-        float: none;
+        float: center;
         margin-top: 80px;
     }
     
     #dayThreeForeDate {
-        font-size: 20px;
+        font-size: 10px;
     }
     
     #dayThreeFirstDiv {
-        position: relative;
-        float: none;
-        width: 110px;
+        float: left;
+        width: 80px;
     }
     
     #dayThreeSecondDiv {
-        position: relative;
-        float: none;
-        width: 100px;
+        float: left;
+        width: 80px;
+        font-size: 10px;
     }
     
     #dayThreeThirdDiv {
-        position: relative;
-        float: none;
+        float: left;
+        font-size: 10px;
+        transform: translate(10px);
     }
     
     #dayThreePic {
-        height: 75px;
-        width: 75px;
-        position: relative;
-        float: none;
+        height: 50px;
+        width: 50px;
+        float: left;
     }
-
+    
     #dayFourTitleDiv {
-        position: relative;
-        float: none;
+        float: center;
         margin-top: 80px;
     }
     
     #dayFourForeDate {
-        font-size: 20px;
+        font-size: 10px;
     }
     
     #dayFourFirstDiv {
-        position: relative;
-        float: none;
-        width: 110px;
+        float: left;
+        width: 80px;
     }
     
     #dayFourSecondDiv {
-        position: relative;
-        float: none;
-        width: 100px;
+        float: left;
+        width: 80px;
+        font-size: 10px;
     }
     
     #dayFourThirdDiv {
-        position: relative;
-        float: none;
+        float: left;
+        font-size: 10px;
+        transform: translate(10px);
     }
     
     #dayFourPic {
-        height: 75px;
-        width: 75px;
-        position: relative;
-        float: none;
+        height: 50px;
+        width: 50px;
+        float: left;
     }
-
+    
     #dayFiveTitleDiv {
-        position: relative;
-        float: none;
+        float: center;
         margin-top: 80px;
     }
     
     #dayFiveForeDate {
-        font-size: 20px;
+        font-size: 10px;
     }
     
     #dayFiveFirstDiv {
-        position: relative;
-        float: none;
-        width: 110px;
+        float: left;
+        width: 80px;
     }
     
     #dayFiveSecondDiv {
-        position: relative;
-        float: none;
-        width: 100px;
+        float: left;
+        width: 80px;
+        font-size: 10px;
     }
     
     #dayFiveThirdDiv {
-        position: relative;
-        float: none;
+        float: left;
+        font-size: 10px;
+        transform: translate(10px);
     }
     
     #dayFivePic {
-        height: 75px;
-        width: 75px;
-        position: relative;
-        float: none;
+        height: 50px;
+        width: 50px;
+        float: left;
     }
 
 }
