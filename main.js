@@ -280,37 +280,37 @@ async function getForecast() {
     const data = await response.json();
     console.log(data)
     let dayOneUnix = data.list[1].dt;  // So many variables just for month and day...shewt
-    let dayOneDate = new Date(dayOneUnix * 1000);
+    let dayOneDate = new Date(dayOneUnix * 1000); // Me -2021
     let dayOneMonth = dayOneDate.getMonth() + 1;
-    let dayOneDay = dayOneDate.getDate();
-    let dayOneClouds = data.list[1].clouds;
-    let dayOneCondition = "Clear";
+    let dayOneDay = dayOneDate.getDate();  // Hey past me, it's future you. We learned how to do this better. I'm going to keep it this way, as a
+    let dayOneClouds = data.list[1].clouds; // token to all the work you put in on this first project. But hey, first project and I'm still 
+    let dayOneCondition = "Clear";  // maintaining it. Me -December 10th, 2024
     let dayOneSpecial = data.list[1].weather[0].main;
     let dayTwoUnix = data.list[2].dt;
     let dayTwoDate = new Date(dayTwoUnix * 1000);
     let dayTwoMonth = dayTwoDate.getMonth() + 1;
-    let dayTwoDay = dayTwoDate.getDate();
+    let dayTwoDay = dayTwoDate.getDate() + 1; // Don't look at this
     let dayTwoClouds = data.list[2].clouds;
     let dayTwoCondition = "Clear";
     let dayTwoSpecial = data.list[2].weather[0].main;
     let dayThreeUnix = data.list[3].dt;
     let dayThreeDate = new Date(dayThreeUnix * 1000);
     let dayThreeMonth = dayThreeDate.getMonth() + 1;
-    let dayThreeDay = dayThreeDate.getDate();
+    let dayThreeDay = dayThreeDate.getDate() + 2; // Or this
     let dayThreeClouds = data.list[3].clouds;
     let dayThreeCondition = "Clear";
     let dayThreeSpecial = data.list[3].weather[0].main;
     let dayFourUnix = data.list[4].dt;
     let dayFourDate = new Date(dayFourUnix * 1000);
     let dayFourMonth = dayFourDate.getMonth() + 1;
-    let dayFourDay = dayFourDate.getDate();
+    let dayFourDay = dayFourDate.getDate() + 3; // >.>
     let dayFourClouds = data.list[4].clouds;
     let dayFourCondition = "Clear";
     let dayFourSpecial = data.list[4].weather[0].main;
     let dayFiveUnix = data.list[5].dt;
     let dayFiveDate = new Date(dayFiveUnix * 1000);
     let dayFiveMonth = dayFiveDate.getMonth() + 1;
-    let dayFiveDay = dayFiveDate.getDate();
+    let dayFiveDay = dayFiveDate.getDate() + 4; // x.x
     let dayFiveClouds = data.list[5].clouds;
     let dayFiveCondition = "Clear";
     let dayFiveSpecial = data.list[5].weather[0].main;
@@ -494,8 +494,6 @@ async function getForecast() {
     document.getElementById('dayFiveHumidity').textContent = Math.round(data.list[5].main.humidity);
     document.getElementById('dayFivePressure').textContent = Math.round(data.list[5].main.pressure);
     document.getElementById('dayFiveWindUnits').textContent = currentSpeedUnit;
-
-    console.log(data);
 }
 
 // ----------------------------------- Cloud Check & Special Weather Function ------------------------------------------------- //
@@ -867,7 +865,13 @@ input.addEventListener('keyup', function pushEnter(event) {   // Enables 'Enter'
         document.getElementById('userLocationButton').click();
     }
 });
+throw new Error('Thanks for viewing my project!')
 
+// Hey viewer, this is the 2024 version of me. If you saw that error and looked at the sources just to reach this point...please read just a little bit more.
+
+// This was my first solo project attempt and I was soooo proud of it. I know it's pretty rough, I believe I knew back then too. Please don't judge.
+// Also, behold below, my ambitious past self left us something:
+// \/      \/
 // Known Issues
 // Background limited with console up and scrolling down
 // Top bar needs new size cut-off or change to style for small resolution
