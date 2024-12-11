@@ -194,7 +194,7 @@ async function getWeather() {
     let basic_api_URL = 'https://api.openweathermap.org/data/2.5/weather?q=' + cityName + '&units=metric&appid=278afa8fabdf943e1a3ead235406b4a5'; // Changes API call for the cityName entered
     const response = await fetch(basic_api_URL);
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
     const location = data.name;
     let temperature = Math.round(data.main.temp); // Variables must be local for async call
     let humidity = data.main.humidity + "%";
@@ -275,44 +275,45 @@ async function getWeather() {
 // ----------------------------------- Forecasted Weather API ------------------------------------------------- //
 
 async function getForecast() {
-    let forecastApi = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + latitude + '&lon=' + longitude + '&exclude=current,minutely,hourly&units=metric&appid=278afa8fabdf943e1a3ead235406b4a5' // Forecast API
+    let forecastApi = 'https://api.openweathermap.org/data/2.5/forecast?lat=' + latitude + '&lon=' + longitude + '&exclude=current,minutely,hourly&units=metric&appid=278afa8fabdf943e1a3ead235406b4a5' // Forecast API
     const response = await fetch(forecastApi);
     const data = await response.json();
-    let dayOneUnix = data.daily[1].dt;  // So many variables just for month and day...shewt
+    console.log(data)
+    let dayOneUnix = data.list[1].dt;  // So many variables just for month and day...shewt
     let dayOneDate = new Date(dayOneUnix * 1000);
     let dayOneMonth = dayOneDate.getMonth() + 1;
     let dayOneDay = dayOneDate.getDate();
-    let dayOneClouds = data.daily[1].clouds;
+    let dayOneClouds = data.list[1].clouds;
     let dayOneCondition = "Clear";
-    let dayOneSpecial = data.daily[1].weather[0].main;
-    let dayTwoUnix = data.daily[2].dt;
+    let dayOneSpecial = data.list[1].weather[0].main;
+    let dayTwoUnix = data.list[2].dt;
     let dayTwoDate = new Date(dayTwoUnix * 1000);
     let dayTwoMonth = dayTwoDate.getMonth() + 1;
     let dayTwoDay = dayTwoDate.getDate();
-    let dayTwoClouds = data.daily[2].clouds;
+    let dayTwoClouds = data.list[2].clouds;
     let dayTwoCondition = "Clear";
-    let dayTwoSpecial = data.daily[2].weather[0].main;
-    let dayThreeUnix = data.daily[3].dt;
+    let dayTwoSpecial = data.list[2].weather[0].main;
+    let dayThreeUnix = data.list[3].dt;
     let dayThreeDate = new Date(dayThreeUnix * 1000);
     let dayThreeMonth = dayThreeDate.getMonth() + 1;
     let dayThreeDay = dayThreeDate.getDate();
-    let dayThreeClouds = data.daily[3].clouds;
+    let dayThreeClouds = data.list[3].clouds;
     let dayThreeCondition = "Clear";
-    let dayThreeSpecial = data.daily[3].weather[0].main;
-    let dayFourUnix = data.daily[4].dt;
+    let dayThreeSpecial = data.list[3].weather[0].main;
+    let dayFourUnix = data.list[4].dt;
     let dayFourDate = new Date(dayFourUnix * 1000);
     let dayFourMonth = dayFourDate.getMonth() + 1;
     let dayFourDay = dayFourDate.getDate();
-    let dayFourClouds = data.daily[4].clouds;
+    let dayFourClouds = data.list[4].clouds;
     let dayFourCondition = "Clear";
-    let dayFourSpecial = data.daily[4].weather[0].main;
-    let dayFiveUnix = data.daily[5].dt;
+    let dayFourSpecial = data.list[4].weather[0].main;
+    let dayFiveUnix = data.list[5].dt;
     let dayFiveDate = new Date(dayFiveUnix * 1000);
     let dayFiveMonth = dayFiveDate.getMonth() + 1;
     let dayFiveDay = dayFiveDate.getDate();
-    let dayFiveClouds = data.daily[5].clouds;
+    let dayFiveClouds = data.list[5].clouds;
     let dayFiveCondition = "Clear";
-    let dayFiveSpecial = data.daily[5].weather[0].main;
+    let dayFiveSpecial = data.list[5].weather[0].main;
 
     dayOneCondition = (dayOneClouds > 50) ? "cloudy" : "sunny";
 
@@ -435,63 +436,63 @@ async function getForecast() {
     }
 
     document.getElementById('dayOneForeDate').textContent = dayOneMonth.toString() + "/" + dayOneDay.toString();
-    document.getElementById('dayOneTemperature').textContent = Math.round(data.daily[1].temp.day);
+    document.getElementById('dayOneTemperature').textContent = Math.round(data.list[1].main.temp);
     document.getElementById('dayOneUnits').textContent = " " + currentTempUnit;
-    document.getElementById('dayOneMin').textContent = Math.round(data.daily[1].temp.min);
+    document.getElementById('dayOneMin').textContent = Math.round(data.list[1].main.temp_min);
     document.getElementById('dayOneMinUnits').textContent = " " + currentTempUnit;
-    document.getElementById('dayOneMax').textContent = Math.round(data.daily[1].temp.max);
+    document.getElementById('dayOneMax').textContent = Math.round(data.list[1].main.temp_max);
     document.getElementById('dayOneMaxUnits').textContent = " " + currentTempUnit;
-    document.getElementById('dayOneWind').textContent = Math.round(data.daily[1].wind_speed);
-    document.getElementById('dayOneHumidity').textContent = Math.round(data.daily[1].humidity);
-    document.getElementById('dayOnePressure').textContent = Math.round(data.daily[1].pressure);
+    document.getElementById('dayOneWind').textContent = Math.round(data.list[1].wind.speed);
+    document.getElementById('dayOneHumidity').textContent = Math.round(data.list[1].main.humidity);
+    document.getElementById('dayOnePressure').textContent = Math.round(data.list[1].main.pressure);
     document.getElementById('dayOneWindUnits').textContent = currentSpeedUnit;
 
     document.getElementById('dayTwoForeDate').textContent = dayTwoMonth.toString() + "/" + dayTwoDay.toString();
-    document.getElementById('dayTwoTemperature').textContent = Math.round(data.daily[2].temp.day);
+    document.getElementById('dayTwoTemperature').textContent = Math.round(data.list[2].main.temp);
     document.getElementById('dayTwoUnits').textContent = " " + currentTempUnit;
-    document.getElementById('dayTwoMin').textContent = Math.round(data.daily[2].temp.min);
+    document.getElementById('dayTwoMin').textContent = Math.round(data.list[2].main.temp_min);
     document.getElementById('dayTwoMinUnits').textContent = " " + currentTempUnit;
-    document.getElementById('dayTwoMax').textContent = Math.round(data.daily[2].temp.max);
+    document.getElementById('dayTwoMax').textContent = Math.round(data.list[2].main.temp_max);
     document.getElementById('dayTwoMaxUnits').textContent = " " + currentTempUnit;
-    document.getElementById('dayTwoWind').textContent = Math.round(data.daily[2].wind_speed);
-    document.getElementById('dayTwoHumidity').textContent = Math.round(data.daily[2].humidity);
-    document.getElementById('dayTwoPressure').textContent = Math.round(data.daily[2].pressure);
+    document.getElementById('dayTwoWind').textContent = Math.round(data.list[2].wind.speed);
+    document.getElementById('dayTwoHumidity').textContent = Math.round(data.list[2].main.humidity);
+    document.getElementById('dayTwoPressure').textContent = Math.round(data.list[2].main.pressure);
     document.getElementById('dayTwoWindUnits').textContent = currentSpeedUnit;
 
     document.getElementById('dayThreeForeDate').textContent = dayThreeMonth.toString() + "/" + dayThreeDay.toString();
-    document.getElementById('dayThreeTemperature').textContent = Math.round(data.daily[3].temp.day);
+    document.getElementById('dayThreeTemperature').textContent = Math.round(data.list[3].main.temp);
     document.getElementById('dayThreeUnits').textContent = " " + currentTempUnit;
-    document.getElementById('dayThreeMin').textContent = Math.round(data.daily[3].temp.min);
+    document.getElementById('dayThreeMin').textContent = Math.round(data.list[3].main.temp_min);
     document.getElementById('dayThreeMinUnits').textContent = " " + currentTempUnit;
-    document.getElementById('dayThreeMax').textContent = Math.round(data.daily[3].temp.max);
+    document.getElementById('dayThreeMax').textContent = Math.round(data.list[3].main.temp_max);
     document.getElementById('dayThreeMaxUnits').textContent = " " + currentTempUnit;
-    document.getElementById('dayThreeWind').textContent = Math.round(data.daily[3].wind_speed);
-    document.getElementById('dayThreeHumidity').textContent = Math.round(data.daily[3].humidity);
-    document.getElementById('dayThreePressure').textContent = Math.round(data.daily[3].pressure);
+    document.getElementById('dayThreeWind').textContent = Math.round(data.list[3].wind.speed);
+    document.getElementById('dayThreeHumidity').textContent = Math.round(data.list[3].main.humidity);
+    document.getElementById('dayThreePressure').textContent = Math.round(data.list[3].main.pressure);
     document.getElementById('dayThreeWindUnits').textContent = currentSpeedUnit;
 
     document.getElementById('dayFourForeDate').textContent = dayFourMonth.toString() + "/" + dayFourDay.toString();
-    document.getElementById('dayFourTemperature').textContent = Math.round(data.daily[4].temp.day);
+    document.getElementById('dayFourTemperature').textContent = Math.round(data.list[4].main.temp);
     document.getElementById('dayFourUnits').textContent = " " + currentTempUnit;
-    document.getElementById('dayFourMin').textContent = Math.round(data.daily[4].temp.min);
+    document.getElementById('dayFourMin').textContent = Math.round(data.list[4].main.temp_min);
     document.getElementById('dayFourMinUnits').textContent = " " + currentTempUnit;
-    document.getElementById('dayFourMax').textContent = Math.round(data.daily[4].temp.max);
+    document.getElementById('dayFourMax').textContent = Math.round(data.list[4].main.temp_max);
     document.getElementById('dayFourMaxUnits').textContent = " " + currentTempUnit;
-    document.getElementById('dayFourWind').textContent = Math.round(data.daily[4].wind_speed);
-    document.getElementById('dayFourHumidity').textContent = Math.round(data.daily[4].humidity);
-    document.getElementById('dayFourPressure').textContent = Math.round(data.daily[4].pressure);
+    document.getElementById('dayFourWind').textContent = Math.round(data.list[4].wind.speed);
+    document.getElementById('dayFourHumidity').textContent = Math.round(data.list[4].main.humidity);
+    document.getElementById('dayFourPressure').textContent = Math.round(data.list[4].main.pressure);
     document.getElementById('dayFourWindUnits').textContent = currentSpeedUnit;
 
     document.getElementById('dayFiveForeDate').textContent = dayFiveMonth.toString() + "/" + dayFiveDay.toString();
-    document.getElementById('dayFiveTemperature').textContent = Math.round(data.daily[5].temp.day);
+    document.getElementById('dayFiveTemperature').textContent = Math.round(data.list[5].main.temp);
     document.getElementById('dayFiveUnits').textContent = " " + currentTempUnit;
-    document.getElementById('dayFiveMin').textContent = Math.round(data.daily[5].temp.min);
+    document.getElementById('dayFiveMin').textContent = Math.round(data.list[5].main.temp_min);
     document.getElementById('dayFiveMinUnits').textContent = " " + currentTempUnit;
-    document.getElementById('dayFiveMax').textContent = Math.round(data.daily[5].temp.max);
+    document.getElementById('dayFiveMax').textContent = Math.round(data.list[5].main.temp_max);
     document.getElementById('dayFiveMaxUnits').textContent = " " + currentTempUnit;
-    document.getElementById('dayFiveWind').textContent = Math.round(data.daily[5].wind_speed);
-    document.getElementById('dayFiveHumidity').textContent = Math.round(data.daily[5].humidity);
-    document.getElementById('dayFivePressure').textContent = Math.round(data.daily[5].pressure);
+    document.getElementById('dayFiveWind').textContent = Math.round(data.list[5].wind.speed);
+    document.getElementById('dayFiveHumidity').textContent = Math.round(data.list[5].main.humidity);
+    document.getElementById('dayFivePressure').textContent = Math.round(data.list[5].main.pressure);
     document.getElementById('dayFiveWindUnits').textContent = currentSpeedUnit;
 
     console.log(data);
